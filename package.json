@@ -1,14 +1,14 @@
 {
-  "name": "oztest",
+  "name": "geolocation-project",
   "version": "0.0.1",
-  "description": "DevOZ - Tech test",
-  "main": "index.js",
+  "description": "Project that explores some functionalities of a Geolocation API (Geoapify) and MongoDB's GeoJSON capabilities.",
+  "main": "src/server.ts",
   "scripts": {
     "start": "node -r ts-node/register --env-file=.env src/server.ts",
     "dev": "nodemon --exec node -r ts-node/register --env-file=.env src/server.ts",
     "test": "mocha --require ts-node/register ./src/**/*.spec.ts --exit"
   },
-  "author": "",
+  "author": "Naiara Correa",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^8.1.0",

@@ -1,9 +1,9 @@
 openapi: 3.0.3
 info:
-  title: OZMap Challenge
+  title: Geolocation Project
   description: |-
-    OZMap Challenge API documentation
-  version: 1.0.0
+    Geolocation Project API documentation
+  version: 2.0.0
 servers:
   - url: http://localhost:3003
 paths:

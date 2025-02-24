@@ -13,7 +13,7 @@ services:
       - mongodb_data:/data/db
 
   app:
-    image: ozmap-desafio # Substitua pelo nome da sua imagem Node.js
+    image: geolocation-project # Substitua pelo nome da sua imagem Node.js
     container_name: app
     ports:
       - '3003:3003' # Expõe a porta 3003 do container para o host
