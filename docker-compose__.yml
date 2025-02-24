@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0-ubuntu2204
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongodb_data:/data/db
+
+  app:
+    image: ozmap-desafio # Substitua pelo nome da sua imagem Node.js
+    container_name: app
+    ports:
+      - '3003:3003' # Expõe a porta 3003 do container para o host
+    environment:
+      MONGO_URI: 'mongodb://root:example@mongodb:27017/oz-tech-test?authSource=admin'
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:

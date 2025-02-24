@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  # myapp:
+  #   image: "mongodb/mongodb-community-server:latest"
+  # ports:
+  #   - "27017:27017"
+  # environment:
+  #   - CONN_STR=mongodb://root:example@mongodb:27017/oz-tech-test?authSource=admin
+  # command: '/bin/bash -c "sleep 5; mongosh $$CONN_STR --eval \"show dbs;\""'
+  # depends_on:
+  #   - mongodb
+  # networks:
+  #   - ip6net
+  # - dbnet
+  mongodb:
+    image: 'mongodb/mongodb-community-server:7.0-ubuntu2204'
+    container_name: mongodb
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=root
+      - MONGODB_INITDB_ROOT_PASSWORD=example
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+# networks:
+#   ip6net:
+#     enable_ipv6: true
+#     ipam:
+#       config:
+#         - subnet: 2001:db8::/64
+
+# networks:
+#   ip6net:
+#     enable_ipv6: true
+# dbnet:
+#   # Specify driver options
+#   driver: bridge
+#   driver_opts:
+#     com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"

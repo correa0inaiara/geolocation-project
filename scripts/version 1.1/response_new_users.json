@@ -1,0 +1,379 @@
+[
+  {
+    "name": "user one",
+    "email": "user1@email.com",
+    "address": "Estrada Esquina Bom Susseso SN - South, 98758-000, Brazil",
+    "location": {
+      "_id": "67b75a9a98f85eec27dcaebf",
+      "createdAt": "2025-02-20T16:38:50.861Z",
+      "updatedAt": "2025-02-20T16:38:50.861Z",
+      "type": "Point",
+      "coordinates": [
+        -53.65740182278678,
+        -28.08336813853207
+      ]
+    },
+    "_id": "67b75a9a98f85eec27dcaec0",
+    "createdAt": "2025-02-20T16:38:50.862Z",
+    "updatedAt": "2025-02-20T16:38:50.862Z",
+    "__v": 0
+  },
+  {
+    "name": "user two",
+    "email": "user2@email.com",
+    "address": "Tupanciretã - RS 98170-000, Brazil",
+    "location": {
+      "_id": "67b75a9c98f85eec27dcaec5",
+      "createdAt": "2025-02-20T16:38:52.165Z",
+      "updatedAt": "2025-02-20T16:38:52.165Z",
+      "type": "Point",
+      "coordinates": [
+        -53.70490153700945,
+        -29.065525847952966
+      ]
+    },
+    "_id": "67b75a9c98f85eec27dcaec6",
+    "createdAt": "2025-02-20T16:38:52.165Z",
+    "updatedAt": "2025-02-20T16:38:52.165Z",
+    "__v": 0
+  },
+  {
+    "name": "user three",
+    "email": "user3@email.com",
+    "address": "Pinheiro Marcado Carazinho, Região Geográfica Intermediária de Passo Fundo, Brazil",
+    "location": {
+      "_id": "67b75a9c98f85eec27dcaecb",
+      "createdAt": "2025-02-20T16:38:52.905Z",
+      "updatedAt": "2025-02-20T16:38:52.905Z",
+      "type": "Point",
+      "coordinates": [
+        -53.05286006023448,
+        -28.25847350045037
+      ]
+    },
+    "_id": "67b75a9c98f85eec27dcaecc",
+    "createdAt": "2025-02-20T16:38:52.906Z",
+    "updatedAt": "2025-02-20T16:38:52.906Z",
+    "__v": 0
+  },
+  {
+    "name": "user four",
+    "email": "user4@email.com",
+    "address": "Estrada Colorado A Vista Alegre 4 SUCAM Colorado - South, 99460-000, Brazil",
+    "location": {
+      "_id": "67b75a9d98f85eec27dcaed1",
+      "createdAt": "2025-02-20T16:38:53.431Z",
+      "updatedAt": "2025-02-20T16:38:53.431Z",
+      "type": "Point",
+      "coordinates": [
+        -53.00104219453052,
+        -28.50162037968289
+      ]
+    },
+    "_id": "67b75a9d98f85eec27dcaed2",
+    "createdAt": "2025-02-20T16:38:53.431Z",
+    "updatedAt": "2025-02-20T16:38:53.431Z",
+    "__v": 0
+  },
+  {
+    "name": "user five",
+    "email": "user5@email.com",
+    "address": "Estrada Do Lobo SN - South, 99600-000, Brazil",
+    "location": {
+      "_id": "67b75a9e98f85eec27dcaed7",
+      "createdAt": "2025-02-20T16:38:54.150Z",
+      "updatedAt": "2025-02-20T16:38:54.150Z",
+      "type": "Point",
+      "coordinates": [
+        -52.75922548791198,
+        -27.433767212388215
+      ]
+    },
+    "_id": "67b75a9e98f85eec27dcaed8",
+    "createdAt": "2025-02-20T16:38:54.150Z",
+    "updatedAt": "2025-02-20T16:38:54.150Z",
+    "__v": 0
+  },
+  {
+    "name": "user six",
+    "email": "user6@email.com",
+    "address": "Rua Espirito Santo SN Correia Pinto - South, 88535-000, Brazil",
+    "location": {
+      "_id": "67b75a9e98f85eec27dcaedd",
+      "createdAt": "2025-02-20T16:38:54.934Z",
+      "updatedAt": "2025-02-20T16:38:54.934Z",
+      "type": "Point",
+      "coordinates": [
+        -50.405830753856655,
+        -27.567824976515613
+      ]
+    },
+    "_id": "67b75a9e98f85eec27dcaede",
+    "createdAt": "2025-02-20T16:38:54.935Z",
+    "updatedAt": "2025-02-20T16:38:54.935Z",
+    "__v": 0
+  },
+  {
+    "name": "user seven",
+    "email": "user7@email.com",
+    "address": "Estrada Mucum A Linha Sao Luiz SN - South, 95970-000, Brazil",
+    "location": {
+      "_id": "67b75a9f98f85eec27dcaee3",
+      "createdAt": "2025-02-20T16:38:55.670Z",
+      "updatedAt": "2025-02-20T16:38:55.670Z",
+      "type": "Point",
+      "coordinates": [
+        -51.87832177094449,
+        -29.140985142597202
+      ]
+    },
+    "_id": "67b75a9f98f85eec27dcaee4",
+    "createdAt": "2025-02-20T16:38:55.671Z",
+    "updatedAt": "2025-02-20T16:38:55.671Z",
+    "__v": 0
+  },
+  {
+    "name": "user eight",
+    "email": "user8@email.com",
+    "address": "Estrada Para Monte Alegre 1380 Monte Alegre Dos Campos - South, 95236-000, Brazil",
+    "location": {
+      "_id": "67b75aa098f85eec27dcaee9",
+      "createdAt": "2025-02-20T16:38:56.539Z",
+      "updatedAt": "2025-02-20T16:38:56.539Z",
+      "type": "Point",
+      "coordinates": [
+        -50.82900999043908,
+        -28.694977989306373
+      ]
+    },
+    "_id": "67b75aa098f85eec27dcaeea",
+    "createdAt": "2025-02-20T16:38:56.539Z",
+    "updatedAt": "2025-02-20T16:38:56.539Z",
+    "__v": 0
+  },
+  {
+    "name": "user nine",
+    "email": "user9@email.com",
+    "address": "Comunidade Fauth E Entre Rios SN - South, 99145-000, Brazil",
+    "location": {
+      "_id": "67b75aa198f85eec27dcaeef",
+      "createdAt": "2025-02-20T16:38:57.162Z",
+      "updatedAt": "2025-02-20T16:38:57.162Z",
+      "type": "Point",
+      "coordinates": [
+        -52.45695460463882,
+        -28.087177820787403
+      ]
+    },
+    "_id": "67b75aa198f85eec27dcaef0",
+    "createdAt": "2025-02-20T16:38:57.162Z",
+    "updatedAt": "2025-02-20T16:38:57.162Z",
+    "__v": 0
+  },
+  {
+    "name": "user ten",
+    "email": "user10@email.com",
+    "address": "Estrada Barra Do Colorado Sao Rsfael SN Tapera - South, 99490-000, Brazil",
+    "location": {
+      "_id": "67b75aa198f85eec27dcaef5",
+      "createdAt": "2025-02-20T16:38:57.727Z",
+      "updatedAt": "2025-02-20T16:38:57.727Z",
+      "type": "Point",
+      "coordinates": [
+        -52.9146790850239,
+        -28.70634087879203
+      ]
+    },
+    "_id": "67b75aa198f85eec27dcaef6",
+    "createdAt": "2025-02-20T16:38:57.727Z",
+    "updatedAt": "2025-02-20T16:38:57.727Z",
+    "__v": 0
+  },
+  {
+    "name": "user eleven",
+    "email": "user11@email.com",
+    "address": "Centro Tupanciretã - RS, 98170-000",
+    "location": {
+      "_id": "67b75aa398f85eec27dcaefc",
+      "type": "Point",
+      "coordinates": [
+        -53.8409241,
+        -29.0801969
+      ]
+    },
+    "_id": "67b75aa298f85eec27dcaefb",
+    "createdAt": "2025-02-20T16:38:58.303Z",
+    "updatedAt": "2025-02-20T16:38:58.303Z",
+    "__v": 0
+  },
+  {
+    "name": "user twelve",
+    "email": "user12@email.com",
+    "address": "Aparacida Chapada - RS, 99530-000",
+    "location": {
+      "_id": "67b75aa498f85eec27dcaf01",
+      "type": "Point",
+      "coordinates": [
+        -55.7297744,
+        -15.4510584
+      ]
+    },
+    "_id": "67b75aa398f85eec27dcaf00",
+    "createdAt": "2025-02-20T16:38:59.185Z",
+    "updatedAt": "2025-02-20T16:38:59.185Z",
+    "__v": 0
+  },
+  {
+    "name": "user thirteen",
+    "email": "user13@email.com",
+    "address": "R. Mal. Floriano, 237-399 - Palmeira das Missões",
+    "location": {
+      "_id": "67b75aa498f85eec27dcaf06",
+      "type": "Point",
+      "coordinates": [
+        -53.3138851,
+        -27.901616
+      ]
+    },
+    "_id": "67b75aa498f85eec27dcaf05",
+    "createdAt": "2025-02-20T16:39:00.346Z",
+    "updatedAt": "2025-02-20T16:39:00.346Z",
+    "__v": 0
+  },
+  {
+    "name": "user fourteen",
+    "email": "user14@email.com",
+    "address": "R. Manoel Ferreira Antunes, 331-189 - Bossoroca RS, 97850-000",
+    "location": {
+      "_id": "67b75aa598f85eec27dcaf0b",
+      "type": "Point",
+      "coordinates": [
+        -54.9094656,
+        -28.7292414
+      ]
+    },
+    "_id": "67b75aa498f85eec27dcaf0a",
+    "createdAt": "2025-02-20T16:39:00.990Z",
+    "updatedAt": "2025-02-20T16:39:00.990Z",
+    "__v": 0
+  },
+  {
+    "name": "user fifthteen",
+    "email": "user15@email.com",
+    "address": "R. Longino Guadagnin, 439-297 - Coxilha do Progresso",
+    "location": {
+      "_id": "67b75aa698f85eec27dcaf10",
+      "type": "Point",
+      "coordinates": [
+        -51.636614,
+        -28.368509
+      ]
+    },
+    "_id": "67b75aa598f85eec27dcaf0f",
+    "createdAt": "2025-02-20T16:39:01.589Z",
+    "updatedAt": "2025-02-20T16:39:01.589Z",
+    "__v": 0
+  },
+  {
+    "name": "user sixteen",
+    "email": "user16@email.com",
+    "address": "Humaitá Bento Gonçalves - RS 95700-000",
+    "location": {
+      "_id": "67b75aa798f85eec27dcaf15",
+      "type": "Point",
+      "coordinates": [
+        -51.532252518,
+        -29.179460658
+      ]
+    },
+    "_id": "67b75aa698f85eec27dcaf14",
+    "createdAt": "2025-02-20T16:39:02.496Z",
+    "updatedAt": "2025-02-20T16:39:02.496Z",
+    "__v": 0
+  },
+  {
+    "name": "user seventeen",
+    "email": "user17@email.com",
+    "address": "R. Francisco Getúlio Vargas, 1130 - Petrópolis, Caxias do Sul - RS, 95070-560",
+    "location": {
+      "_id": "67b75aa898f85eec27dcaf1a",
+      "type": "Point",
+      "coordinates": [
+        -51.1524115,
+        -29.162721
+      ]
+    },
+    "_id": "67b75aa798f85eec27dcaf19",
+    "createdAt": "2025-02-20T16:39:03.105Z",
+    "updatedAt": "2025-02-20T16:39:03.105Z",
+    "__v": 0
+  },
+  {
+    "name": "user eightteen",
+    "email": "user18@email.com",
+    "address": "Tv. Ibirapuitã, 2-168 - Missões, Soledade - RS, 99300-000",
+    "location": {
+      "_id": "67b75aa998f85eec27dcaf1f",
+      "type": "Point",
+      "coordinates": [
+        -52.5064789,
+        -28.8203562
+      ]
+    },
+    "_id": "67b75aa898f85eec27dcaf1e",
+    "createdAt": "2025-02-20T16:39:04.203Z",
+    "updatedAt": "2025-02-20T16:39:04.203Z",
+    "__v": 0
+  },
+  {
+    "name": "user nineteen",
+    "email": "user19@email.com",
+    "address": "R. das Azaléias, 795, Nicolau Vergueiro - RS, 99175-000",
+    "location": {
+      "_id": "67b75aaa98f85eec27dcaf24",
+      "type": "Point",
+      "coordinates": [
+        -52.4618214,
+        -28.5349844
+      ]
+    },
+    "_id": "67b75aa998f85eec27dcaf23",
+    "createdAt": "2025-02-20T16:39:05.587Z",
+    "updatedAt": "2025-02-20T16:39:05.587Z",
+    "__v": 0
+  },
+  {
+    "name": "user twenty",
+    "email": "user20@email.com",
+    "address": "R. dos Andradas, 689-899 - Centro Santa Maria - RS, 97010-033",
+    "location": {
+      "_id": "67b75aad98f85eec27dcaf29",
+      "type": "Point",
+      "coordinates": [
+        -51.0571946,
+        -29.6780155
+      ]
+    },
+    "_id": "67b75aaa98f85eec27dcaf28",
+    "createdAt": "2025-02-20T16:39:06.379Z",
+    "updatedAt": "2025-02-20T16:39:06.379Z",
+    "__v": 0
+  },
+  {
+    "name": "user tests",
+    "email": "tests@email.com",
+    "address": "R. dos Andradas, 689-899 - Centro Santa Maria - RS, 97010-033",
+    "location": {
+      "_id": "67b75ab098f85eec27dcaf2e",
+      "type": "Point",
+      "coordinates": [
+        -51.0571946,
+        -29.6780155
+      ]
+    },
+    "_id": "67b75aad98f85eec27dcaf2d",
+    "createdAt": "2025-02-20T16:39:09.293Z",
+    "updatedAt": "2025-02-20T16:39:09.293Z",
+    "__v": 0
+  }
+]
