@@ -10,13 +10,12 @@ import { isRegionValid } from '../validations/regionValidations';
 import { RegionLocation } from './regionLocationModel';
 
 @pre<Region>('validate', async function (next) {
-  const {name, user, location} = this
+  const { name, user, location } = this;
 
-  isRegionValid.call(this, name, user, location)
+  isRegionValid.call(this, name, user, location);
 
-  next()
+  next();
 })
-
 class Base extends TimeStamps {
   @prop({ required: true, default: () => new ObjectId().toString() })
   _id: string;
@@ -31,7 +30,7 @@ export class Region extends Base {
   public user!: mongoose.Types.ObjectId;
 
   @prop({ required: true, type: () => RegionLocation, index: '2dsphere' })
-  public location!: RegionLocation
+  public location!: RegionLocation;
 }
 
 export const RegionModel = getModelForClass(Region);

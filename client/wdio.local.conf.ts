@@ -1,4 +1,4 @@
-const { config } = require('./wdio.shared.conf.ts')
+const { config } = require('./wdio.shared.conf.ts');
 
 exports.config = {
   /**
@@ -15,14 +15,12 @@ exports.config = {
       browserName: 'chrome',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
-        args: process.argv.includes('--headless')
-          ? ['--headless', '--disable-gpu']
-          : []
-      }
+        args: process.argv.includes('--headless') ? ['--headless', '--disable-gpu'] : [],
+      },
     },
     {
       browserName: 'firefox',
-      acceptInsecureCerts: true
-    }
-  ]
-}
+      acceptInsecureCerts: true,
+    },
+  ],
+};

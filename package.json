@@ -11,11 +11,17 @@
     "build-app": "npm run build-client && npm install && npm run build-start",
     "build-client": "cd client && npm run build-app && cd ..",
     "build-start": "pm2 start src/server.ts -n Convertible9000 && pm2 monit",
-    "babel": "babel --out-file bundle.js src/server.ts"
+    "pm2": "pm2 start ecosystem.config.js",
+    "babel": "babel --out-file bundle.js src/server.ts",
+    "lint": "npx eslint .",
+    "prettier-check": "prettier --check .",
+    "prettier-write": "prettier --write .",
+    "prepare": "husky"
   },
   "author": "Naiara Correa",
   "license": "ISC",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.38.3",
     "@faker-js/faker": "^8.1.0",
     "@googlemaps/google-maps-services-js": "^3.4.0",
     "@typegoose/typegoose": "^11.5.0",
@@ -56,6 +62,7 @@
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.5.1",

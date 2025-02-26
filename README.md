@@ -1,7 +1,9 @@
 # About
+
 Geolocation Project is based in another project of mine called [ozmap-challenge](https://github.com/correa0inaiara/ozmap-challenge), which was created as a TestCode for a Hiring Process. I wanted to include so many things, expand the project so much more and to include it in my personal portfolio, that it made sense to create a new one.
 
 ## Technologies
+
 This is the initial technologies included in the base-project. And as you can see it's a lot, but also there's so much more to do and so many things I didn't had time to do, like testing, that I decided to continue. As I develop the project I will update this list accordingly.
 
 - Language: [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)

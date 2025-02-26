@@ -1,4 +1,4 @@
-import i18next from "../i18n"
+import i18next from '../i18n';
 
 export const HomeController = function (req, res) {
   const menu = {
@@ -6,7 +6,7 @@ export const HomeController = function (req, res) {
     regions: i18next.t('clientMenuRegions'),
     searchDistance: i18next.t('clientMenuSearchByDistance'),
     searchPoint: i18next.t('clientMenuSearchByPoint'),
-  }
+  };
 
   const userRegistration = {
     title: i18next.t('userRegistrationTitle'),
@@ -22,25 +22,25 @@ export const HomeController = function (req, res) {
     labelLatitude: i18next.t('userRegistrationLabelLatitude'),
     inputLatitudeErrorMsg: i18next.t('userRegistrationInputLatitudeErrorMsg'),
     inputUserFormErrorMsg: i18next.t('userRegistrationInputUserFormErrorMsg'),
-    submitButton: i18next.t('userRegistrationSubmitButton')
-  }
+    submitButton: i18next.t('userRegistrationSubmitButton'),
+  };
 
   const userListing = {
-    title: i18next.t('userListingTitle')
-  }
+    title: i18next.t('userListingTitle'),
+  };
 
   const tableHeader = {
     index: i18next.t('tableHeaderIndex'),
     nameEmail: i18next.t('tableHeaderNameEmail'),
     address: i18next.t('tableHeaderAddress'),
-    longLat: i18next.t('tableHeaderLongLat')
-  }
+    longLat: i18next.t('tableHeaderLongLat'),
+  };
 
   const nav = {
     prev: i18next.t('navPrev'),
-    next: i18next.t('navNext')
-  }
+    next: i18next.t('navNext'),
+  };
 
-  const params = {menu, userRegistration, userListing, tableHeader, nav}
-  res.render('home', params)
-}
+  const params = { menu, userRegistration, userListing, tableHeader, nav };
+  res.render('home', params);
+};

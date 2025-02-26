@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars, max-len */
-const path = require('path')
+const path = require('path');
 
 exports.config = {
   // ==================
@@ -12,12 +12,12 @@ exports.config = {
   //
   specs: [
     path.join(__dirname, '/tests/e2e/**/*.spec.ts'),
-    path.join(__dirname, '/tests/e2e/**/*.spec.js')
+    path.join(__dirname, '/tests/e2e/**/*.spec.js'),
   ],
   // Patterns to exclude.
   exclude: [
-      // 'test/spec/multibrowser/**',
-      // 'test/spec/mobile/**'
+    // 'test/spec/multibrowser/**',
+    // 'test/spec/mobile/**'
   ],
   //
   // ===================
@@ -70,8 +70,7 @@ exports.config = {
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  onPrepare: function (config, capabilities) {
-  },
+  onPrepare: function (config, capabilities) {},
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
    * for that worker as well as modify runtime environments in an async fashion.
@@ -81,8 +80,7 @@ exports.config = {
    * @param  {[type]} args     object that will be merged with the main configuration once worker is initialised
    * @param  {[type]} execArgv list of string arguments passed to the worker process
    */
-  onWorkerStart: function (cid, caps, specs, args, execArgv) {
-  },
+  onWorkerStart: function (cid, caps, specs, args, execArgv) {},
   /**
    * Gets executed just before initialising the webdriver session and test framework. It allows you
    * to manipulate configurations depending on the capability or spec.
@@ -90,49 +88,46 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
-  beforeSession: function (config, capabilities, specs) {
-  },
+  beforeSession: function (config, capabilities, specs) {},
   /**
    * Gets executed before test execution begins. At this point you can access to all global
    * variables like `browser`. It is the perfect place to define custom commands.
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
-  before: function (capabilities, specs) {
-  },
+  before: function (capabilities, specs) {},
   /**
    * Hook that gets executed before the suite starts
    * @param {Object} suite suite details
    */
-  beforeSuite: function (suite) {
-  },
+  beforeSuite: function (suite) {},
   /**
    * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
    * beforeEach in Mocha)
    * stepData and world are Cucumber framework specific
    */
-  beforeHook: function (test, context/*, stepData, world*/) {
-  },
+  beforeHook: function (test, context /*, stepData, world*/) {},
   /**
    * Hook that gets executed _after_ a hook within the suite ends (e.g. runs after calling
    * afterEach in Mocha)
    * stepData and world are Cucumber framework specific
    */
-  afterHook: function (test, context, { error, result, duration, passed, retries }/*, stepData, world*/) {
-  },
+  afterHook: function (
+    test,
+    context,
+    { error, result, duration, passed, retries } /*, stepData, world*/,
+  ) {},
   /**
    * Function to be executed before a test (in Mocha/Jasmine) starts.
    */
-  beforeTest: function (test, context) {
-  },
+  beforeTest: function (test, context) {},
   //
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName command name
    * @param {Array} args arguments that command would receive
    */
-  beforeCommand: function (commandName, args) {
-  },
+  beforeCommand: function (commandName, args) {},
   /**
    * Runs after a WebdriverIO command gets executed.
    * @param {String} commandName hook command name
@@ -140,19 +135,16 @@ exports.config = {
    * @param {Number} result 0 - command success, 1 - command error
    * @param {Object} error error object if any
    */
-  afterCommand: function (commandName, args, result, error) {
-  },
+  afterCommand: function (commandName, args, result, error) {},
   /**
    * Function to be executed after a test (in Mocha/Jasmine) ends.
    */
-  afterTest: function (test, context, { error, result, duration, passed, retries }) {
-  },
+  afterTest: function (test, context, { error, result, duration, passed, retries }) {},
   /**
    * Hook that gets executed after the suite has ended
    * @param {Object} suite suite details
    */
-  afterSuite: function (suite) {
-  },
+  afterSuite: function (suite) {},
   /**
    * Gets executed after all tests are done. You still have access to all global variables from
    * the test.
@@ -160,16 +152,14 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that ran
    */
-  after: function (result, capabilities, specs) {
-  },
+  after: function (result, capabilities, specs) {},
   /**
    * Gets executed right after terminating the webdriver session.
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that ran
    */
-  afterSession: function (config, capabilities, specs) {
-  },
+  afterSession: function (config, capabilities, specs) {},
   /**
    * Gets executed after all workers got shut down and the process is about to exit. An error
    * thrown in the onComplete hook will result in the test run failing.
@@ -178,27 +168,23 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: function (exitCode, config, capabilities, results) {
-  },
+  onComplete: function (exitCode, config, capabilities, results) {},
   /**
-  * Gets executed when a refresh happens.
-  * @param {String} oldSessionId session ID of the old session
-  * @param {String} newSessionId session ID of the new session
-  */
-  onReload: function(oldSessionId, newSessionId) {
-  },
+   * Gets executed when a refresh happens.
+   * @param {String} oldSessionId session ID of the old session
+   * @param {String} newSessionId session ID of the new session
+   */
+  onReload: function (oldSessionId, newSessionId) {},
   //
   // Cucumber specific hooks
-  beforeFeature: function (uri, feature, scenarios) {
-  },
-  beforeScenario: function (uri, feature, scenario, sourceLocation) {
-  },
-  beforeStep: function ({ uri, feature, step }, context) {
-  },
-  afterStep: function ({ uri, feature, step }, context, { error, result, duration, passed, retries }) {
-  },
-  afterScenario: function (uri, feature, scenario, result, sourceLocation) {
-  },
-  afterFeature: function (uri, feature, scenarios) {
-  }
-}
+  beforeFeature: function (uri, feature, scenarios) {},
+  beforeScenario: function (uri, feature, scenario, sourceLocation) {},
+  beforeStep: function ({ uri, feature, step }, context) {},
+  afterStep: function (
+    { uri, feature, step },
+    context,
+    { error, result, duration, passed, retries },
+  ) {},
+  afterScenario: function (uri, feature, scenario, result, sourceLocation) {},
+  afterFeature: function (uri, feature, scenarios) {},
+};

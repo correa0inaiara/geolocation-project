@@ -1,4 +1,4 @@
 {
-  "ext": "*.ts, *.json, *.yaml, *.hbs, *.yml",
+  "ext": "*.js, *.ts, *.json, *.yaml, *.hbs, *.yml, *.vue",
   "verbose": true
 }

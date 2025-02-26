@@ -4,32 +4,30 @@ import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { 
-    files: ['**/*.{js,mjs,cjs,ts}'] 
+  {
+    files: ['**/*.{js,mjs,cjs,ts}'],
   },
-  { 
-    files: ['**/*.js', '**/*.ts'], 
-    languageOptions: { 
+  {
+    files: ['**/*.js', '**/*.ts'],
+    languageOptions: {
       ecmaVersion: 5,
-      sourceType: "script" 
-    } 
+      sourceType: 'script',
+    },
   },
-  { 
-    languageOptions: { 
-      globals: globals.browser 
-    } 
+  {
+    languageOptions: {
+      globals: globals.browser,
+    },
   },
   {
     rules: {
-      "no-unused-vars": "warn",
-      "@typescript-eslint/no-this-alias": ["error", { "allowedNames": ["self"] } ]
-    }
+      'no-unused-vars': 'warn',
+      '@typescript-eslint/no-this-alias': ['error', { allowedNames: ['self'] }],
+    },
   },
-  // {
-  //   rules: {
-  //     "allowAsImport": ["error", true]
-  //   }
-  // },
+  {
+    ignores: ['client/*', 'node-modules/*', 'public/*'],
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
 ];

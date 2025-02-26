@@ -12,15 +12,15 @@ paths:
       tags:
         - users
       description: Return all users
-      produces:
-        - application/json
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserArray'
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
         '500':
           description: Internal server error
     post:
@@ -131,15 +131,15 @@ paths:
           required: false
           schema:
             type: boolean
-      produces:
-        - application/json
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RegionArray'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Region'
         '500':
           description: Internal server error
     post:
@@ -261,7 +261,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RegionLocationArray'
+                type: array
+                items:
+                  $ref: '#/components/schemas/RegionLocation'
         '500':
           description: Internal server error
   /api/search/point:
@@ -281,7 +283,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchRegionArray'
+                type: array
+                items:
+                  $ref: '#/components/schemas/SearchRegion'
         '500':
           description: Internal server error
 components:
@@ -305,21 +309,23 @@ components:
           type: string
           example: 437 Lytton, Palo Alto
         location:
-          description: user location (coordinates)
           $ref: '#/components/schemas/UserLocation'
+
       oneOf:
-        - required: 
-          - address
-        - required: 
-          - location
+        - required:
+            - address
+        - required:
+            - location
     UserLocation:
       description: user location (coordinates)
       type: object
+      required:
+        - coordinates
       properties:
         type:
           type: string
-          enum: ['Point']
-          required: false
+          enum:
+            - 'Point'
         coordinates:
           type: array
           items:
@@ -327,15 +333,7 @@ components:
             minItems: 2
             maxItems: 2
             example: [-74.0060, 40.7128]
-          required: true
-    UserArray:
-      description: List of user objects
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
+
     Region:
       required:
         - name
@@ -354,16 +352,16 @@ components:
           format: ObjectId
           example: 67ba69e45aec254076e00955
         location:
-          description: region location (coordinates) of a polygon
           $ref: '#/components/schemas/RegionLocation'
     RegionLocation:
       description: region location coordinates of a polygon
       type: object
+      required:
+        - coordinates
       properties:
         type:
           type: string
           enum: ['Polygon']
-          required: false
         coordinates:
           type: array
           items:
@@ -377,39 +375,25 @@ components:
                 example: [-74.0060, 40.7128]
               minItems: 4
               example:
-                [[
-                    [-54.8495925124539,-29.38527663481956], 
-                    [-55.01726259754506,-29.65267882893055], 
-                    [-54.57679818557013,-29.72591826180347], 
-                    [-54.28826680721306,-29.4599918148036], 
-                    [-54.8495925124539,-29.38527663481956]
-                ]]
+                [
+                  [
+                    [-54.8495925124539, -29.38527663481956],
+                    [-55.01726259754506, -29.65267882893055],
+                    [-54.57679818557013, -29.72591826180347],
+                    [-54.28826680721306, -29.4599918148036],
+                    [-54.8495925124539, -29.38527663481956],
+                  ],
+                ]
           minItems: 1
-          required: true
-    RegionArray:
-      description: List of region objects
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Region'
-    RegionLocationArray:
-      description: List of region objects
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/RegionLocation'
     SearchRegion:
       description: polygon representing a region
       type: object
+      required:
+        - coordinates
       properties:
         type:
           type: string
           enum: ['Polygon']
-          required: false
         coordinates:
           type: array
           items:
@@ -423,31 +407,25 @@ components:
                 example: [-74.0060, 40.7128]
               minItems: 4
               example:
-                [[
-                    [-54.8495925124539,-29.38527663481956], 
-                    [-55.01726259754506,-29.65267882893055], 
-                    [-54.57679818557013,-29.72591826180347], 
-                    [-54.28826680721306,-29.4599918148036], 
-                    [-54.8495925124539,-29.38527663481956]
-                ]]
+                [
+                  [
+                    [-54.8495925124539, -29.38527663481956],
+                    [-55.01726259754506, -29.65267882893055],
+                    [-54.57679818557013, -29.72591826180347],
+                    [-54.28826680721306, -29.4599918148036],
+                    [-54.8495925124539, -29.38527663481956],
+                  ],
+                ]
           minItems: 1
-          required: true
-    SearchRegionArray:
-      description: list of regions
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/SearchRegion'
     SearchRegionByPoint:
       description: specific coordinates of a point
       type: object
+      required:
+        - coordinates
       properties:
         type:
           type: string
           enum: ['Point']
-          required: false
         coordinates:
           type: array
           items:
@@ -455,7 +433,6 @@ components:
             minItems: 2
             maxItems: 2
             example: [-74.0060, 40.7128]
-          required: true
   requestBodies:
     User:
       description: User object to insert in the database

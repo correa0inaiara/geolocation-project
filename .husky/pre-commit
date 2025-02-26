@@ -1,0 +1,4 @@
+npm run lint
+npm run prettier-check
+npm run prettier-write
+npm test
