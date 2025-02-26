@@ -9,8 +9,15 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    // "allowJs": true,
+    // "checkJs": true,
+    // "allowImportingTsExtensions": true
   },
+  // "ts-node": {
+  //   "esm": true,
+  //   "compiler": "typescript"
+  // },
   "types": ["reflect-metadata", "mocha"],
   "exclude": ["node_modules"]
 }

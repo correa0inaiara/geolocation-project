@@ -21,6 +21,7 @@ export default [
   },
   {
     rules: {
+      "no-unused-vars": "warn",
       "@typescript-eslint/no-this-alias": ["error", { "allowedNames": ["self"] } ]
     }
   },

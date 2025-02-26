@@ -1,6 +1,6 @@
 import "i18next";
-import en from './../../public/locales/en/ns.json';
-import pt from './../../public/locales/pt/ns.json';
+import en from './../../locales/en/ns.json';
+import pt from './../../locales/pt/ns.json';
 
 declare module "i18next" {
   interface CustomTypeOptions {

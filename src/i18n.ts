@@ -1,6 +1,6 @@
 import * as i18next from 'i18next'
-import en from './../public/locales/en'
-import pt from './../public/locales/pt'
+import en from './../locales/en'
+import pt from './../locales/pt'
 import { log } from './logs'
 
 i18next
