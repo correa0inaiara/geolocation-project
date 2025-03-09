@@ -7,7 +7,7 @@ Geolocation Project is based in another project of mine called [ozmap-challenge]
 This is the initial technologies included in the base-project. And as you can see it's a lot, but also there's so much more to do and so many things I didn't had time to do, like testing, that I decided to continue. As I develop the project I will update this list accordingly.
 
 - Language: [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- Frontend: [Vue]([https://www.typescriptlang.org/](https://vuejs.org/))
+- Frontend: [Vue](https://vuejs.org/)
 - Backend: [Node](https://nodejs.org/) with [Express](https://expressjs.com/) and [Typescript](https://www.typescriptlang.org/)
 - Database: [MongoDB](https://www.mongodb.com/) with [Moongoose](https://mongoosejs.com/) and [Typegoose](https://typegoose.github.io/typegoose/)
 - Containers: [Docker](https://www.docker.com/)
