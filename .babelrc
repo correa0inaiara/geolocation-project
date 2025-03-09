@@ -1,3 +1,33 @@
 {
-  "presets": ["@babel/preset-typescript"]
+  "sourceMaps": true,
+  "babelrc": true,
+  "code": true,
+  "sourceType": "unambiguous",
+  "useBuiltIns": "usage",
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "bugfixes": true,
+        "modules": "auto",
+        "debug": true,
+        "include": [
+          ["@babel/plugin-transform-spread"],
+          ["@babel/plugin-transform-class-properties", { "loose": true }]
+        ]
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-spread", { "loose": true }],
+    "babel-plugin-transform-typescript-metadata",
+    ["@babel/plugin-proposal-decorators", { "version": "2023-11", "decoratorsBeforeExport": true }],
+    ["@babel/plugin-transform-class-properties", { "loose": true }]
+  ],
+  "include": ["src/**.ts", "src/**.js"],
+  "exclude": ["src/**/tests/*", "src/**/*.hbs"]
 }

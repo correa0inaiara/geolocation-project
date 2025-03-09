@@ -5,3 +5,7 @@ db_backup
 *.hbs
 resources
 package-lock.json
+*.log
+*.txt
+coverage
+.env.keys

@@ -17,13 +17,13 @@ import { RegionLocation } from './regionLocationModel';
   next();
 })
 class Base extends TimeStamps {
-  @prop({ required: true, default: () => new ObjectId().toString() })
+  @prop({ required: true, type: () => String, default: () => new ObjectId().toString() })
   _id: string;
 }
 
 @modelOptions({ schemaOptions: { validateBeforeSave: true } })
 export class Region extends Base {
-  @prop({ required: true })
+  @prop({ required: true, type: () => String })
   public name!: string;
 
   @prop({ required: true, ref: () => User, type: () => User })

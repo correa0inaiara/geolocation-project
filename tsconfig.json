@@ -1,16 +1,23 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2020",
+    "module": "Preserve",
+    "moduleDetection": "force",
+    "target": "ES2024",
     "outDir": "./build",
-    "emitDecoratorMetadata": true,
+    // "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true
-    // "allowJs": true,
-    // "checkJs": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    // "declaration": true,
+    // "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    // "noImplicitAny": true
+    "allowJs": true,
+    "checkJs": true
     // "allowImportingTsExtensions": true
   },
   // "ts-node": {
@@ -18,5 +25,5 @@
   //   "compiler": "typescript"
   // },
   "types": ["reflect-metadata", "mocha"],
-  "exclude": ["node_modules", "client"]
+  "exclude": ["node_modules", "client", "**/*.spec.ts"]
 }

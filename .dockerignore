@@ -4,3 +4,8 @@ npm-debug.log
 resources
 db_backup
 .vscode
+.env.keys
+coverage
+*.log
+*.txt
+*.hbs

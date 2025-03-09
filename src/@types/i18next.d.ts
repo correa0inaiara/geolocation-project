@@ -1,11 +1,13 @@
 import 'i18next';
-import en from './../../locales/en/ns.json';
-import pt from './../../locales/pt/ns.json';
+import en from './../../locales/en';
+import es from './../../locales/es';
+import pt from './../../locales/pt';
 
 declare module 'i18next' {
   interface CustomTypeOptions {
     resources: {
       en: typeof en;
+      es: typeof es;
       pt: typeof pt;
     };
   }

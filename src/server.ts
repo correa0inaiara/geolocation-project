@@ -1,47 +1,58 @@
-import * as app from 'express';
-import initDB from './database';
-import { userRouter } from './routes/userRoutes';
-import { regionRouter } from './routes/regionRoutes';
-import * as bodyParser from 'body-parser';
-import { regionLocationRouter } from './routes/regionLocationRoutes';
+import app from 'express';
+import * as initDB from './database';
+// import { userRouter } from './routes/userRoutes';
+// import { regionRouter } from './routes/regionRoutes';
+// import bodyParser from 'body-parser';
+// import { searchRouter } from './routes/searchRoutes';
 import { log } from './logs';
-import * as swaggerUi from 'swagger-ui-express';
-import * as fs from 'fs';
-import * as YAML from 'yaml';
+import swaggerUi from 'swagger-ui-express';
+import fs from 'fs';
+import YAML from 'yaml';
 import i18next from './i18n';
-import * as dotenvx from '@dotenvx/dotenvx';
+// import cors from 'cors'
+// import * as middleware from 'i18next-http-middleware'
+// import LanguageMiddleware from './middleware/LanguageMiddleware';
+import { HOST, PORT } from './globals';
+import server from './serverConfig';
 
-main();
+const file = fs.readFileSync('./swagger/swagger.yaml', 'utf8');
+const swaggerDocument = YAML.parse(file);
 
-export default async function main() {
-  // documentation files
-  const file = fs.readFileSync('./src/swagger/swagger.yaml', 'utf8');
-  const swaggerDocument = YAML.parse(file);
+// initializing server
+// const server = app();
+log.info({ server: i18next.t('serverInit') });
 
-  // initializing server
-  const server = app();
-  const base_path = process.env.BASE_API_PATH;
-  log.info({ server: i18next.t('serverInit') });
+// initializing database
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const database = initDB;
 
-  // initializing database
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const database = initDB;
+// // config cors
+// server.use(cors({
+//   origin: `${HOST_FRONT}:${PORT_FRONT}`,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Accept', 'Accept-Language', 'Content-Type', 'Content-Language']
+// }))
 
-  // .env config
-  dotenvx.config();
+// // config i18next middleware
+// server.use(middleware.handle(i18next.default))
+// server.use(LanguageMiddleware)
 
-  // swagger config
-  server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// // config json
+// server.use(app.json())
+// server.use(bodyParser.json());
 
-  // server routes config
-  server.use(bodyParser.json());
-  server.use(base_path + '/users', userRouter);
-  server.use(base_path + '/regions', regionRouter);
-  server.use(base_path + '/search', regionLocationRouter);
+// swagger config
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-  server.use(app.static('public'));
+// // server routes config
+// server.use(BASE_PATH + '/users', userRouter);
+// server.use(BASE_PATH + '/regions', regionRouter);
+// server.use(BASE_PATH + '/search', searchRouter);
 
-  server.listen(process.env.PORT, () => {
-    log.info({ server: i18next.t('serverHost') });
-  });
-}
+// server.use(app.static('public'));
+// server.use(app.static('locales'));
+server.listen(PORT, HOST, () => {
+  log.info({ server: i18next.t('serverHost', { host: HOST, port: PORT }) });
+});
+
+export { server, app };

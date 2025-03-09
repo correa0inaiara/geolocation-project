@@ -1,9 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
-import { UserLocation } from './models/userLocationModel';
-import { log } from './logs';
-import i18next from './i18n';
+import { LibResponseError } from './classes/Errors';
+import { DataSource } from './classes/Responses';
+import { isValid } from './utils';
+import { ERROR_STATUS, LOGTYPE_VALUE } from './enums';
 
-export const getCoordinatesFromAddress = async function (address: string) {
+export const getCoordinatesFromAddress = async function (
+  address: string,
+): Promise<LibResponseError | Array<DataSource>> {
   const params = encodeURIComponent(address);
   const config = {
     method: 'get',
@@ -16,28 +19,45 @@ export const getCoordinatesFromAddress = async function (address: string) {
     .then(async function (response: AxiosResponse) {
       const { data } = response;
       const { features } = data;
+      console.log('features', features);
 
-      if (features.length == 0) {
-        const message = i18next.t('libAddressValidation');
-        log.error({ lib: message });
-        throw message;
+      if (!isValid(features)) {
+        const libErrorResponse = new LibResponseError(
+          'libAddressValidation',
+          ERROR_STATUS.BAD_REQUEST,
+          null,
+          LOGTYPE_VALUE.LIB,
+        );
+        return libErrorResponse;
       }
 
-      const lat = features[0].properties.lat;
-      const long = features[0].properties.lon;
-      const coordinates = [long, lat];
+      const _features: Array<DataSource> = features.map((feature) => new DataSource(feature));
 
-      return coordinates;
+      return _features;
+
+      // const lat = features[0].properties.lat;
+      // const long = features[0].properties.lon;
+      // const coordinates = new Coordinates(long, lat)
+
+      // return coordinates;
     })
-    .catch(async function (error) {
-      log.error({ lib: error });
-      return error;
+    .catch(async function (error: Error) {
+      const libErrorResponse = new LibResponseError(
+        null,
+        ERROR_STATUS.BAD_REQUEST,
+        error,
+        LOGTYPE_VALUE.LIB,
+      );
+      return libErrorResponse;
     });
 };
 
-export const getAddressFromCoordinates = async function (location: UserLocation) {
-  const long = location.coordinates[0];
-  const lat = location.coordinates[1];
+export const getAddressFromCoordinates = async function (
+  longitude: number,
+  latitude: number,
+): Promise<LibResponseError | Array<DataSource>> {
+  const long = longitude;
+  const lat = latitude;
   const params = 'lat=' + lat + '&lon=' + long + '&format=json';
 
   const config = {
@@ -51,11 +71,32 @@ export const getAddressFromCoordinates = async function (location: UserLocation)
       const { data } = response;
       const { results } = data;
 
-      const { address_line1, address_line2 } = results[0];
-      const address = address_line1 + ' ' + address_line2;
-      return address;
+      if (!isValid(results)) {
+        const libErrorResponse = new LibResponseError(
+          'libCoordinatesValidation',
+          ERROR_STATUS.BAD_REQUEST,
+          null,
+          LOGTYPE_VALUE.LIB,
+        );
+        return libErrorResponse;
+      }
+
+      const _results: Array<DataSource> = results.map((result) => new DataSource(result));
+
+      return _results;
+
+      // const { address_line1, address_line2 } = results[0];
+      // const address = new Address(address_line1, address_line2)
+
+      // return address;
     })
     .catch(async function (error) {
-      log.error({ lib: error });
+      const libErrorResponse = new LibResponseError(
+        null,
+        ERROR_STATUS.BAD_REQUEST,
+        error,
+        LOGTYPE_VALUE.LIB,
+      );
+      return libErrorResponse;
     });
 };

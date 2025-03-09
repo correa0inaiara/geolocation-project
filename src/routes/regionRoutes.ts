@@ -1,10 +1,9 @@
 import * as server from 'express';
 import { RegionModel } from '../models/regionModels';
-import { STATUS } from '../enums';
+import { ERROR_STATUS, LOGTYPE_VALUE, STATUS } from '../enums';
 import { RegionLocation } from '../models/regionLocationModel';
 import { isObjectID, isValid, parseBoolean } from '../utils';
-import { log } from '../logs';
-import i18next from '../i18n';
+import handleErrorResponse from './routerHandlers';
 
 export const regionRouter = server.Router();
 
@@ -43,8 +42,14 @@ regionRouter.get('/', async (req, res) => {
       });
     }
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ message: error });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -69,15 +74,26 @@ regionRouter.get('/:id', async (req, res) => {
     }
 
     if (!region) {
-      const message = i18next.t('apiRegionNotFound');
-      log.error({ api: message });
-      return res.status(STATUS.NOT_FOUND).json({ message });
+      return handleErrorResponse(
+        'apiRegionNotFound',
+        ERROR_STATUS.NOT_FOUND,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     return res.status(STATUS.OK).json(region);
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ message: error });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -86,9 +102,14 @@ regionRouter.post('/', async (req, res) => {
     const { name, user, location } = req.body;
 
     if (!location || !location.coordinates) {
-      const message = i18next.t('apiRegionLocationValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+      return handleErrorResponse(
+        'apiRegionLocationValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     const new_location = new RegionLocation();
@@ -105,8 +126,14 @@ regionRouter.post('/', async (req, res) => {
 
     return res.status(STATUS.OK).json(region);
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ error: error?.errors });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -116,30 +143,50 @@ regionRouter.put('/:id', async (req, res) => {
   params._id = id;
 
   if (!params) {
-    const message = i18next.t('apiRegionUpdateParametersMissing');
-    log.error({ api: message });
-    return res.status(STATUS.BAD_REQUEST).json({ message });
+    return handleErrorResponse(
+      'apiRegionUpdateParametersMissing',
+      ERROR_STATUS.BAD_REQUEST,
+      null,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 
   try {
     const region = await RegionModel.findOne({ _id: id });
 
     if (!region) {
-      const message = i18next.t('apiRegionNotFound');
-      log.error({ api: message });
-      return res.status(STATUS.NOT_FOUND).json({ message });
+      return handleErrorResponse(
+        'apiRegionNotFound',
+        ERROR_STATUS.NOT_FOUND,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     if (params.user && !isObjectID(params.user)) {
-      const message = i18next.t('apiRegionUserValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+      return handleErrorResponse(
+        'apiRegionUserValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     if (params.location && !params.location.coordinates) {
-      const message = i18next.t('apiRegionLocationValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+      return handleErrorResponse(
+        'apiRegionLocationValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     region._id = params._id;
@@ -164,9 +211,15 @@ regionRouter.put('/:id', async (req, res) => {
     await new_region.validate();
     await new_region.save();
     return res.status(STATUS.UPDATED).json(new_region);
-  } catch (err) {
-    log.error({ api: err });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ error: err?.errors });
+  } catch (error) {
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -177,14 +230,25 @@ regionRouter.delete('/:id', async (req, res) => {
     const region = await RegionModel.deleteOne({ _id: id }).lean();
 
     if (!region || region?.deletedCount == 0) {
-      const message = i18next.t('apiRegionNotFound');
-      log.error({ api: message });
-      return res.status(STATUS.NOT_FOUND).json({ message });
+      return handleErrorResponse(
+        'apiRegionNotFound',
+        ERROR_STATUS.NOT_FOUND,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     return res.status(STATUS.OK).json(region);
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ message: error });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });

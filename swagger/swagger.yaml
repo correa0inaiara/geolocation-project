@@ -296,7 +296,7 @@ components:
         - email
       type: object
       properties:
-        id:
+        _id:
           type: string
           format: ObjectId
           example: 67ba69e45aec254076e00955
@@ -322,6 +322,10 @@ components:
       required:
         - coordinates
       properties:
+        _id:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
         type:
           type: string
           enum:
@@ -341,7 +345,7 @@ components:
         - location
       type: object
       properties:
-        id:
+        _id:
           type: string
           format: ObjectId
           example: 67ba69e45aec254076e00955
@@ -359,6 +363,10 @@ components:
       required:
         - coordinates
       properties:
+        _id:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
         type:
           type: string
           enum: ['Polygon']

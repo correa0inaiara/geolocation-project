@@ -1,15 +1,15 @@
-import * as server from 'express';
+import { Request, Response, Router } from 'express';
 import { UserModel } from '../models/userModels';
-import { STATUS } from '../enums';
+import { ERROR_STATUS, LOGTYPE_VALUE, STATUS } from '../enums';
 import { UserLocation } from '../models/userLocationModel';
 import { log } from '../logs';
-import i18next from 'i18next';
+import { isValid } from '../utils';
+import i18next from '../i18n';
+import handleErrorResponse from './routerHandlers';
 
-export const userRouter = server.Router();
+export const userRouter = Router();
 
-userRouter.get('/', async (req, res) => {
-  const { page, limit } = req.query;
-
+userRouter.get('/', async (req: Request, res: Response) => {
   try {
     const [users, total] = await Promise.all([
       UserModel.find().populate('location'),
@@ -18,34 +18,47 @@ userRouter.get('/', async (req, res) => {
 
     return res.status(STATUS.OK).json({
       rows: users.reverse(),
-      page,
-      limit,
       total,
     });
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
-      message: 'Error na chamada do servidor. ' + error,
-    });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
 userRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
-
   try {
-    const user = await UserModel.findOne({ _id: id }).populate('location');
+    const user = await UserModel.findOne({ _id: id }).populate('location').exec();
 
+    console.log('user', user);
     if (!user) {
-      const message = i18next.t('apiUserNotFound');
-      log.error({ api: message });
-      return res.status(STATUS.NOT_FOUND).json({ message });
+      return handleErrorResponse(
+        'apiUserNotFound',
+        ERROR_STATUS.NOT_FOUND,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     res.status(STATUS.OK).json(user);
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ message: error });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -53,29 +66,47 @@ userRouter.post('/', async (req, res) => {
   try {
     const { name, email, address, location } = req.body;
 
-    if (address && location) {
-      const message = i18next.t('apiUserSchemaValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+    if (isValid(address) && isValid(location)) {
+      return handleErrorResponse(
+        'apiUserSchemaValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
-    if (!address && !location) {
-      const message = i18next.t('apiUserSchemaValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+    if (!isValid(address) && !isValid(location)) {
+      return handleErrorResponse(
+        'apiUserSchemaValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
-    if (location && !location.coordinates) {
-      const message = i18next.t('apiUserLocationValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+    if (isValid(location) && !isValid(location.coordinates)) {
+      return handleErrorResponse(
+        'apiUserLocationValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     let user;
-    if (location) {
+    if (isValid(location)) {
+      console.log('location', location);
       const new_location = new UserLocation();
+      console.log('new_location', new_location);
       new_location.type = 'Point';
       new_location.coordinates = location.coordinates;
+      console.log('new_location', new_location);
 
       user = new UserModel({
         name,
@@ -86,7 +117,7 @@ userRouter.post('/', async (req, res) => {
       await user.populate('location');
     }
 
-    if (address) {
+    if (isValid(address)) {
       user = new UserModel({
         name,
         email,
@@ -98,8 +129,14 @@ userRouter.post('/', async (req, res) => {
     await user.save();
     return res.status(STATUS.OK).json(user);
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ error: error?.errors });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -118,21 +155,36 @@ userRouter.put('/:id', async (req, res) => {
     const user = await UserModel.findOne({ _id: id });
 
     if (!user) {
-      const message = i18next.t('apiUserNotFound');
-      log.error({ api: message });
-      return res.status(STATUS.NOT_FOUND).json({ message });
+      return handleErrorResponse(
+        'apiUserNotFound',
+        ERROR_STATUS.NOT_FOUND,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     if (params.address && params.location) {
-      const message = i18next.t('apiUserSchemaValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+      return handleErrorResponse(
+        'apiUserSchemaValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     if (params.location && !params.location.coordinates) {
-      const message = i18next.t('apiUserLocationValidation');
-      log.error({ api: message });
-      return res.status(STATUS.BAD_REQUEST).json({ message });
+      return handleErrorResponse(
+        'apiUserLocationValidation',
+        ERROR_STATUS.BAD_REQUEST,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     user._id = params._id;
@@ -141,7 +193,6 @@ userRouter.put('/:id', async (req, res) => {
     const name = params.name ? params.name : user.name;
     const email = params.email ? params.email : user.email;
     let address = user.address ? user.address : null;
-    let location = user.location ? user.location : null;
 
     if (params.location && params.location.coordinates) {
       const new_location = new UserLocation();
@@ -181,9 +232,15 @@ userRouter.put('/:id', async (req, res) => {
     await new_user.validate();
     await new_user.save();
     return res.status(STATUS.UPDATED).json(new_user);
-  } catch (err) {
-    log.error({ api: err });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ error: err.errors ? err.errors : err });
+  } catch (error) {
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });
 
@@ -194,14 +251,25 @@ userRouter.delete('/:id', async (req, res) => {
     const user = await UserModel.deleteOne({ _id: id }).lean();
 
     if (!user || user?.deletedCount == 0) {
-      const message = i18next.t('apiUserNotFound');
-      log.error({ api: message });
-      return res.status(STATUS.NOT_FOUND).json({ message });
+      return handleErrorResponse(
+        'apiUserNotFound',
+        ERROR_STATUS.NOT_FOUND,
+        null,
+        LOGTYPE_VALUE.API,
+        req,
+        res,
+      );
     }
 
     return res.status(STATUS.OK).json(user);
   } catch (error) {
-    log.error({ api: error });
-    return res.status(STATUS.INTERNAL_SERVER_ERROR).json({ message: error });
+    return handleErrorResponse(
+      null,
+      ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      error,
+      LOGTYPE_VALUE.API,
+      req,
+      res,
+    );
   }
 });

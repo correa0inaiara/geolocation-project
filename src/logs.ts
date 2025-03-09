@@ -9,11 +9,11 @@ export const log = bunyan.createLogger({
     },
     {
       level: 'info',
-      path: './app.log',
+      path: './logs/app.log',
     },
     {
       level: 'error',
-      path: './error.log',
+      path: './logs/error.log',
     },
   ],
 });
