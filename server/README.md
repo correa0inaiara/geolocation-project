@@ -7,8 +7,8 @@ Geolocation Project is based in another project of mine called [ozmap-challenge]
 This is the initial technologies included in the base-project. And as you can see it's a lot, but also there's so much more to do and so many things I didn't had time to do, like testing, that I decided to continue. As I develop the project I will update this list accordingly.
 
 - Language: [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- Frontend: [Typescript](https://www.typescriptlang.org/)
-- Backend: [Node](https://nodejs.org/) with [Express](https://expressjs.com/)
+- Frontend: [Vue](https://vuejs.org/)
+- Backend: [Node](https://nodejs.org/) with [Express](https://expressjs.com/) and [Typescript](https://www.typescriptlang.org/)
 - Database: [MongoDB](https://www.mongodb.com/) with [Moongoose](https://mongoosejs.com/) and [Typegoose](https://typegoose.github.io/typegoose/)
 - Containers: [Docker](https://www.docker.com/)
 - Internationalization: [i18next](https://www.i18next.com/)
@@ -18,5 +18,8 @@ This is the initial technologies included in the base-project. And as you can se
 - View Engine: [Handlebars](https://handlebarsjs.com/) and [express-handlebars](https://www.npmjs.com/package/express-handlebars)
 - Stylization: [Bootstrap](https://getbootstrap.com/)
 - Linter: [ESLint](https://eslint.org/)
+- Pre-Commit: [Husky](https://typicode.github.io/husky/)
+- Transpilation: [Babel](https://babeljs.io/)
+- Tests: [Jest](https://jestjs.io/)
 
 And many more... If you wanna check it out, here is the link to the [package.json](https://github.com/correa0inaiara/geolocation/blob/main/package.json).
