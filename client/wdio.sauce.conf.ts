@@ -1,4 +1,4 @@
-import { config } from './wdio.shared.conf.ts';
+import { config } from './wdio.shared.conf.js';
 
 const BUILD_ID = Math.ceil(Date.now() / 1000);
 

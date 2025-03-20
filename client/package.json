@@ -10,6 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^1.8.3",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
@@ -46,8 +47,31 @@
     "sass-loader": "^12.0.0",
     "ts-jest": "^27.0.4",
     "ts-node": "^9.1.1",
-    "typescript": "~4.5.5",
+    "typescript": "^5.8.2",
     "wdio-chromedriver-service": "^7.0.0",
     "wdio-geckodriver-service": "^2.0.2"
-  }
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "_id": "client@0.1.0",
+  "readme": "ERROR: No README data found!"
 }

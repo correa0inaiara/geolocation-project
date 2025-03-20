@@ -19,13 +19,9 @@ export default function QueryBodyMiddleware(req: Request, res: Response, next: N
 
   const queryBody = req.query as QueryBody;
 
-  console.log('queryBody', queryBody);
-
   const isDefined = isParameterDefined(queryBody.expand);
-  console.log('isDefined', isDefined);
   if (isDefined) {
     const bool = parseBoolean(queryBody.expand);
-    console.log('bool', bool);
     if (bool == -1) {
       const message = i18next.t('apiUnsupportedQueryParameter');
       const new_error = new CustomError(ERROR_STATUS.NOT_ACCEPTABLE, message, null);
@@ -35,8 +31,6 @@ export default function QueryBodyMiddleware(req: Request, res: Response, next: N
   } else {
     req.query.expand = 'false';
   }
-
-  console.log('req.query', req.query);
 
   next();
 }

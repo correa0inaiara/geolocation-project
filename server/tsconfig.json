@@ -25,5 +25,5 @@
   //   "compiler": "typescript"
   // },
   "types": ["reflect-metadata", "mocha"],
-  "exclude": ["node_modules", "client", "**/*.spec.ts"]
+  "exclude": ["node_modules", "client1", "**/*.spec.ts"]
 }
