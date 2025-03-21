@@ -1,3 +1,4 @@
+cd server
 dotenvx encrypt
 npm run babel
 npm run lint

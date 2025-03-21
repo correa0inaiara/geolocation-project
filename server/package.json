@@ -17,7 +17,7 @@
     "lint": "ESLINT_USE_FLAT_CONFIG=true npx eslint . --debug",
     "prettier-check": "NODE_OPTIONS='--experimental-strip-types' prettier --check .",
     "prettier-write": "NODE_OPTIONS='--experimental-strip-types' prettier --write .",
-    "prepare": "husky"
+    "prepare": "cd .. && husky server/.husky"
   },
   "author": "Naiara Correa",
   "license": "ISC",
