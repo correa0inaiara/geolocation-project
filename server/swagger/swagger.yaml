@@ -1,0 +1,450 @@
+openapi: 3.0.3
+info:
+  title: Geolocation Project
+  description: |-
+    Geolocation Project API documentation
+  version: 2.0.0
+servers:
+  - url: http://localhost:3003
+paths:
+  /api/users:
+    get:
+      tags:
+        - users
+      description: Return all users
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '500':
+          description: Internal server error
+    post:
+      tags:
+        - user
+      description: Add a new user to the database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Request body invalid or validation exception
+        '500':
+          description: Internal server error
+  /api/users/{id}:
+    get:
+      tags:
+        - user
+      description: Find a user by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of user to return
+          required: true
+          schema:
+            type: string
+            format: ObjectID
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+    put:
+      tags:
+        - user
+      summary: Update an existing user
+      description: Update an existing user by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of user to update
+          required: true
+          schema:
+            type: string
+            format: ObjectID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '201':
+          description: User successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Request body invalid or validation exception
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+        - user
+      description: delete a user by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of user to delete
+          required: true
+          schema:
+            type: string
+            format: ObjectID
+      responses:
+        '200':
+          description: User successfully deleted
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+  /api/regions:
+    get:
+      tags:
+        - regions
+      description: Return all regions
+      parameters:
+        - name: expand
+          in: query
+          description: Inform if the response should expand the user information, or just the id
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Region'
+        '500':
+          description: Internal server error
+    post:
+      tags:
+        - region
+      description: Add a new region to the database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+        '400':
+          description: Request body invalid or validation exception
+        '500':
+          description: Internal server error
+  /api/regions/{id}:
+    get:
+      tags:
+        - region
+      description: Find a region by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of region to return
+          required: true
+          schema:
+            type: string
+            format: ObjectID
+        - name: expand
+          in: query
+          description: Inform if the response should expand the user information, or just the id
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+        '404':
+          description: Region not found
+        '500':
+          description: Internal server error
+    put:
+      tags:
+        - region
+      summary: Update an existing region
+      description: Update an existing region by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of region to update
+          required: true
+          schema:
+            type: string
+            format: ObjectID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+        required: true
+      responses:
+        '201':
+          description: Region successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+        '400':
+          description: Request body invalid or validation exception
+        '404':
+          description: Region not found
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+        - region
+      description: delete a region by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of region to delete
+          required: true
+          schema:
+            type: string
+            format: ObjectID
+      responses:
+        '200':
+          description: Region successfully deleted
+        '404':
+          description: Region not found
+        '500':
+          description: Internal server error
+  /api/search/distance:
+    post:
+      tags:
+        - regions
+      description: Returns all regions within the region specified
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRegion'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RegionLocation'
+        '500':
+          description: Internal server error
+  /api/search/point:
+    post:
+      tags:
+        - regions
+      description: Returns all regions that intercepts with the specified point
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRegionByPoint'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SearchRegion'
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    User:
+      required:
+        - name
+        - email
+      type: object
+      properties:
+        _id:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        address:
+          type: string
+          example: 437 Lytton, Palo Alto
+        location:
+          $ref: '#/components/schemas/UserLocation'
+
+      oneOf:
+        - required:
+            - address
+        - required:
+            - location
+    UserLocation:
+      description: user location (coordinates)
+      type: object
+      required:
+        - coordinates
+      properties:
+        _id:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
+        type:
+          type: string
+          enum:
+            - 'Point'
+        coordinates:
+          type: array
+          items:
+            type: number
+            minItems: 2
+            maxItems: 2
+            example: [-74.0060, 40.7128]
+
+    Region:
+      required:
+        - name
+        - user
+        - location
+      type: object
+      properties:
+        _id:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
+        name:
+          type: string
+        user:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
+        location:
+          $ref: '#/components/schemas/RegionLocation'
+    RegionLocation:
+      description: region location coordinates of a polygon
+      type: object
+      required:
+        - coordinates
+      properties:
+        _id:
+          type: string
+          format: ObjectId
+          example: 67ba69e45aec254076e00955
+        type:
+          type: string
+          enum: ['Polygon']
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
+                example: [-74.0060, 40.7128]
+              minItems: 4
+              example:
+                [
+                  [
+                    [-54.8495925124539, -29.38527663481956],
+                    [-55.01726259754506, -29.65267882893055],
+                    [-54.57679818557013, -29.72591826180347],
+                    [-54.28826680721306, -29.4599918148036],
+                    [-54.8495925124539, -29.38527663481956],
+                  ],
+                ]
+          minItems: 1
+    SearchRegion:
+      description: polygon representing a region
+      type: object
+      required:
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum: ['Polygon']
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
+                example: [-74.0060, 40.7128]
+              minItems: 4
+              example:
+                [
+                  [
+                    [-54.8495925124539, -29.38527663481956],
+                    [-55.01726259754506, -29.65267882893055],
+                    [-54.57679818557013, -29.72591826180347],
+                    [-54.28826680721306, -29.4599918148036],
+                    [-54.8495925124539, -29.38527663481956],
+                  ],
+                ]
+          minItems: 1
+    SearchRegionByPoint:
+      description: specific coordinates of a point
+      type: object
+      required:
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum: ['Point']
+        coordinates:
+          type: array
+          items:
+            type: number
+            minItems: 2
+            maxItems: 2
+            example: [-74.0060, 40.7128]
+  requestBodies:
+    User:
+      description: User object to insert in the database
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'

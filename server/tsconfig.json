@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // "module": "Preserve",
+    "moduleDetection": "auto",
+    "target": "ES2024",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    // "declaration": true,
+    // "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    // "noImplicitAny": true
+    "allowJs": true,
+    "checkJs": true
+    // "allowImportingTsExtensions": true
+  },
+  // "ts-node": {
+  //   "esm": true,
+  //   "compiler": "typescript"
+  // },
+  "types": ["reflect-metadata"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

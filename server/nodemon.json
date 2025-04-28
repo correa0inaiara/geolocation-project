@@ -1,0 +1,4 @@
+{
+  "ext": "*.js, *.ts, *.json, *.yaml, *.hbs, *.yml, *.vue",
+  "verbose": true
+}

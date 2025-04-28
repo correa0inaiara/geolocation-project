@@ -1,3 +1,9 @@
 node_modules
-.env
 package-lock.json
+.env.keys
+resources
+coverage
+*.log
+*.txt
+_*
+db_backup

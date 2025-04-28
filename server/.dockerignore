@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+.git
+resources
+db_backup
+.vscode
+.env.keys
+coverage
+*.log
+*.txt
+*.hbs

@@ -1,0 +1,112 @@
+<h2>{{userRegistration.title}}</h2>
+
+<div id='alertUserRegistration'></div>
+
+<form
+  method='post'
+  action='#'
+  onsubmit='processUserForm(); return false'
+  rel='noopener'
+  name='userForm'
+  class='needs-validation'
+  novalidate
+>
+  <div class='mb-3'>
+    <label for='userName' class='form-label'>{{userRegistration.labelName}}</label>
+    <input
+      name='name'
+      type='text'
+      class='form-control'
+      id='userName'
+      required
+      pattern='([a-zA-Z ])*'
+      aria-describedby='userNameInvalidMsg'
+    />
+    <div
+      id='userNameInvalidMsg'
+      class='invalid-feedback'
+    >{{userRegistration.inputNameErrorMsg}}</div>
+  </div>
+  <div class='mb-3'>
+    <label for='userEmail' class='form-label'>{{userRegistration.labelEmail}}</label>
+    <input
+      name='email'
+      type='email'
+      class='form-control'
+      id='userEmail'
+      required
+      aria-describedby='userEmailInvalidMsg'
+    />
+    <div
+      id='userEmailInvalidMsg'
+      class='invalid-feedback'
+    >{{userRegistration.inputEmailErrorMsg}}</div>
+  </div>
+  <div class='mb-3'>
+    <label for='userAddress' class='form-label'>{{userRegistration.labelAddress}}</label>
+    <input
+      name='address'
+      type='text'
+      class='form-control'
+      id='userAddress'
+      required
+      aria-describedby='geolocationInvalidMessage userAddressInvalidMsg'
+    />
+    <div
+      id='userAddressInvalidMsg'
+      class='invalid-feedback'
+    >{{userRegistration.inputAddressErrorMsg}}</div>
+  </div>
+  <fieldset class='row mb-3 has-validation'>
+    <legend class='col-form-label'>{{userRegistration.labelLocation}}</legend>
+    <div class='mb-3'>
+      <label for='userLocationLong' class='form-label'>{{userRegistration.labelLongitude}}</label>
+      <input
+        name='longitude'
+        type='number'
+        class='form-control'
+        id='userLocationLong'
+        required
+        step='0.0000001'
+        min='-180'
+        max='180'
+        pattern='(-?\\d+\\.\\d+)(\\s*,\\s*)?(-?\\d+\\.\\d+)'
+        aria-describedby='geolocationInvalidMessage userLocationLongitudeInvalidMsg'
+      />
+      <div
+        id='userLocationLongitudeInvalidMsg'
+        class='invalid-feedback'
+      >{{userRegistration.inputLongitudeErrorMsg}}</div>
+    </div>
+    <div class='mb-3'>
+      <label for='userLocationLat' class='form-label'>{{userRegistration.labelLatitude}}</label>
+      <input
+        name='latitude'
+        type='number'
+        class='form-control'
+        id='userLocationLat'
+        required
+        step='0.0000001'
+        min='-90'
+        max='90'
+        pattern='(-?\\d+\\.\\d+)(\\s*,\\s*)?(-?\\d+\\.\\d+)'
+        aria-describedby='geolocationInvalidMessage userLocationLatitudeInvalidMsg'
+      />
+      <div
+        id='userLocationLatitudeInvalidMsg'
+        class='invalid-feedback'
+      >{{userRegistration.inputLatitudeErrorMsg}}</div>
+    </div>
+  </fieldset>
+  <p
+    id='geolocationInvalidMessage'
+    class='invalid-feedback'
+  >{{userRegistration.inputUserFormErrorMsg}}</p>
+  <div class='row justify-content-center'>
+    <button
+      type='submit'
+      name='userFormSubmit'
+      class='col-12 col-sm-4 col-md-6 mt-3 btn btn-primary'
+    >{{userRegistration.submitButton}}</button>
+  </div>
+</form>
