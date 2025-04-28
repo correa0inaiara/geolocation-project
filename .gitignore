@@ -9,3 +9,4 @@ db_backup
 !.env.project
 !.env.vault
 .vercel
+vercel.json

@@ -28,7 +28,7 @@ i18next.init(
   (err) => {
     if (err) {
       log.error({ i18n: err });
-      return false
+      return false;
     }
   },
 );
