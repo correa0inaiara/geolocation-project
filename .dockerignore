@@ -9,3 +9,7 @@ coverage
 *.log
 *.txt
 *.hbs
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

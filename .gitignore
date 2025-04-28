@@ -7,3 +7,8 @@ coverage
 *.txt
 _*
 db_backup
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+.env
