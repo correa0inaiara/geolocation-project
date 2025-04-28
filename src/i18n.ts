@@ -26,10 +26,9 @@ i18next.init(
     },
   },
   (err) => {
-    console.log('err i18next', err);
     if (err) {
       log.error({ i18n: err });
-      return console.error(err);
+      return false
     }
   },
 );

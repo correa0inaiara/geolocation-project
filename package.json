@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "DOTENV_KEY='dotenv://:key_9a8d328e5b4ab3d46c9628ccd4e4cca0bfddb5836e1ead39e7f6665af6441741@dotenv.local/vault/.env.vault?environment=production' pnpm dlx tsx src/server.ts",
+    "start": "pnpm dlx tsx --env-file=.env.production src/server.ts",
     "dev": "pnpm dlx tsx watch --include 'src/**/*' --clear-screen=false --trace-warnings --trace-uncaught src/server.ts",
     "test": "dotenvx run -- jest --testTimeout=5000",
     "build": "pnpm install && pnpm run start",
