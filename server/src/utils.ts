@@ -42,9 +42,9 @@ export const isParameterDefined = function (param: string | null | undefined | u
 };
 
 export const getAllLanguages = function () {
-  const languages = [LANG.PT, LANG.ES, LANG.EN]
-  return languages
-}
+  const languages = [LANG.PT, LANG.ES, LANG.EN];
+  return languages;
+};
 
 // validate coordinates
 export const isCoordinate = function (param) {
@@ -81,32 +81,32 @@ export const isObjectID = function (param) {
 export const isBoolean = function (param: string | null | undefined | unknown) {
   if (!isValid(param)) return false;
   if (typeof param == 'boolean') return true;
-  return false
+  return false;
 };
 
 export const isString = function (param: string | null | undefined | unknown) {
   if (!isValid(param)) return false;
-  if (typeof param == 'string') return true
-  return false
-}
+  if (typeof param == 'string') return true;
+  return false;
+};
 
 export const parseBoolean = function (param: string | null | undefined | unknown) {
-  let _param = ''
+  let _param = '';
 
   if (isBoolean(param)) return param;
 
   if (isString(param)) {
-    _param = param as string
+    _param = param as string;
     const regex = /^true|false$/i;
-    const match = regex.exec(_param)
-    console.log('match', match)
+    const match = regex.exec(_param);
+    console.log('match', match);
     if (isArray(match)) {
-      const bool = JSON.parse(_param)
-      return bool
+      const bool = JSON.parse(_param);
+      return bool;
     }
-    return -1
+    return -1;
   }
-  return -1
+  return -1;
 };
 
 export const isValid = function (param) {

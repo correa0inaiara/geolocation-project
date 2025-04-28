@@ -114,7 +114,7 @@ userRouter.post('/', async (req, res) => {
         address: null,
         location: new_location,
       });
-      console.log('user', user)
+      console.log('user', user);
 
       await user.populate('location');
     }

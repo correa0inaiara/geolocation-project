@@ -10,7 +10,7 @@ export const HOST_FRONT = 'localhost';
 export const PORT = 3003;
 export const PORT_TESTS = 3001;
 // export const PORT_FRONT = 8080 | 5173 | 4173;
-export const FRONT_HOSTNAME = /^http(s)?:\/\/localhost:(8080|5173|4173)$/
+export const FRONT_HOSTNAME = /^http(s)?:\/\/localhost:(8080|5173|4173)$/;
 
 // API
 export const BASE_PATH = '/api';

@@ -34,7 +34,7 @@ export default async function LanguageMiddleware(req: Request, res: Response, ne
   */
 
   const acceptLanguage = req.headers['accept-language'];
-  const languages = getAllLanguages()
+  const languages = getAllLanguages();
 
   const isDefined = isParameterDefined(acceptLanguage);
   if (isDefined) {

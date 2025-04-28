@@ -10,7 +10,7 @@ import i18next from './i18n';
 import QueryBodyMiddleware from './middleware/QueryBodyMiddleware';
 
 // init i18next middleware
-i18next.t('serverInit')
+i18next.t('serverInit');
 
 // initializing server
 const server = app();

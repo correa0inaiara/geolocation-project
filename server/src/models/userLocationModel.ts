@@ -18,7 +18,6 @@ import ObjectId = mongoose.Types.ObjectId;
 
   next();
 })
-
 class Base extends TimeStamps {
   @prop({ required: true, type: () => String, default: () => new ObjectId().toString() })
   _id: string;
