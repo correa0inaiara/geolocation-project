@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { CustomError, ErrorStatus, UnknownError } from '../classes/Errors';
 import { log } from '../logs';
 import { LogType } from '../classes/Responses';
+import i18next from '../i18n';
 
 export default function handleErrorResponse(
   key: string | null,
@@ -11,7 +12,7 @@ export default function handleErrorResponse(
   req: Request,
   res: Response,
 ) {
-  const message = req.i18n.t(key);
+  const message = i18next.t(key);
   const new_error = new CustomError(error_status, message, error);
   const loggerObj = {};
   loggerObj[origin] = new_error;

@@ -41,6 +41,11 @@ export const isParameterDefined = function (param: string | null | undefined | u
   return true;
 };
 
+export const getAllLanguages = function () {
+  const languages = [LANG.PT, LANG.ES, LANG.EN]
+  return languages
+}
+
 // validate coordinates
 export const isCoordinate = function (param) {
   const _param = param + '';
@@ -76,21 +81,32 @@ export const isObjectID = function (param) {
 export const isBoolean = function (param: string | null | undefined | unknown) {
   if (!isValid(param)) return false;
   if (typeof param == 'boolean') return true;
-  if (typeof param == 'string') {
-    const regex = /^\b([tT][rR][uU][eE]|[fF][aA][lL][sS][eE])\b$/;
-    if (isArray(regex.exec(param))) return true;
-    return false;
-  }
+  return false
 };
 
-export const parseBoolean = function (param: string | null | undefined | unknown) {
-  if (!isBoolean(param)) return -1;
-  const str_param = JSON.stringify(param);
-  const regexTrue = /^\b([tT][rR][uU][eE])\b$/;
-  const regexFalse = /^\b([fF][aA][lL][sS][eE])\b$/;
+export const isString = function (param: string | null | undefined | unknown) {
+  if (!isValid(param)) return false;
+  if (typeof param == 'string') return true
+  return false
+}
 
-  if (isArray(regexTrue.exec(str_param))) return true;
-  if (isArray(regexFalse.exec(str_param))) return false;
+export const parseBoolean = function (param: string | null | undefined | unknown) {
+  let _param = ''
+
+  if (isBoolean(param)) return param;
+
+  if (isString(param)) {
+    _param = param as string
+    const regex = /^true|false$/i;
+    const match = regex.exec(_param)
+    console.log('match', match)
+    if (isArray(match)) {
+      const bool = JSON.parse(_param)
+      return bool
+    }
+    return -1
+  }
+  return -1
 };
 
 export const isValid = function (param) {

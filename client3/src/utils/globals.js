@@ -1,0 +1,2 @@
+// API URL
+export const API_URL = 'http://localhost:3003/api'

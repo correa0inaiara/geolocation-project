@@ -12,7 +12,7 @@ export const userRouter = Router();
 userRouter.get('/', async (req: Request, res: Response) => {
   try {
     const [users, total] = await Promise.all([
-      UserModel.find().populate('location'),
+      UserModel.find().populate('location').exec(),
       UserModel.count(),
     ]);
 
@@ -114,6 +114,8 @@ userRouter.post('/', async (req, res) => {
         address: null,
         location: new_location,
       });
+      console.log('user', user)
+
       await user.populate('location');
     }
 

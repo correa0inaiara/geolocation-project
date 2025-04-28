@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import {
+  getAllLanguages,
   getValidLangFromAcceptLanguage,
   isAccepLanguageValid,
   isParameterDefined,
@@ -8,7 +9,7 @@ import {
 import { CustomError } from '../classes/Errors';
 import { ERROR_STATUS, STATUS } from '../enums';
 import { log } from '../logs';
-import { DEFAULT_LANG } from '../globals';
+import i18next from '../i18n';
 
 export default async function LanguageMiddleware(req: Request, res: Response, next: NextFunction) {
   /*
@@ -33,24 +34,23 @@ export default async function LanguageMiddleware(req: Request, res: Response, ne
   */
 
   const acceptLanguage = req.headers['accept-language'];
+  const languages = getAllLanguages()
 
   const isDefined = isParameterDefined(acceptLanguage);
   if (isDefined) {
     const isAcceptLangValid = isAccepLanguageValid(acceptLanguage);
     if (isAcceptLangValid) {
-      const firstLang = getValidLangFromAcceptLanguage(acceptLanguage, req.languages);
+      const firstLang = getValidLangFromAcceptLanguage(acceptLanguage, languages);
       if (!isValid(firstLang)) {
-        const message = req.i18n.t('i18nUnsupportedLangHeader');
+        const message = i18next.t('i18nUnsupportedLangHeader');
         const new_error = new CustomError(ERROR_STATUS.NOT_ACCEPTABLE, message, null);
         log.error({ i18n: new_error });
         return res.status(STATUS.NOT_ACCEPTABLE).json(new_error);
       }
 
-      if (firstLang != DEFAULT_LANG) {
-        req.i18n.changeLanguage(firstLang);
-      }
+      i18next.changeLanguage(firstLang);
     } else {
-      const message = req.i18n.t('i18nUnsupportedLangHeader');
+      const message = i18next.t('i18nUnsupportedLangHeader');
       const new_error = new CustomError(ERROR_STATUS.NOT_ACCEPTABLE, message, null);
       log.error({ i18n: new_error });
       return res.status(STATUS.NOT_ACCEPTABLE).json(new_error);

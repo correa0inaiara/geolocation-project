@@ -9,6 +9,9 @@ declare module 'i18next' {
       en: typeof en;
       es: typeof es;
       pt: typeof pt;
-    };
+    }
+  }
+  interface i18n {
+    languages: readonly string[]
   }
 }

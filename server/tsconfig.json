@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "Preserve",
-    "moduleDetection": "force",
+    // "module": "Preserve",
+    "moduleDetection": "auto",
     "target": "ES2024",
     "outDir": "./build",
-    // "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -24,6 +24,6 @@
   //   "esm": true,
   //   "compiler": "typescript"
   // },
-  "types": ["reflect-metadata", "mocha"],
-  "exclude": ["node_modules", "client1", "**/*.spec.ts"]
+  "types": ["reflect-metadata"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vite dev --host",
+    "build": "vite build",
+    "preview": "vite preview",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
@@ -41,11 +42,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "geckodriver": "^3.0.1",
-    "jest": "^27.0.5",
     "prettier": "^2.4.1",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
-    "ts-jest": "^27.0.4",
     "ts-node": "^9.1.1",
     "typescript": "^5.8.2",
     "wdio-chromedriver-service": "^7.0.0",

@@ -98,8 +98,8 @@ export class User extends Base {
   @prop({ type: () => [String] })
   public address: string;
 
-  @prop({ type: () => UserLocation })
-  public location: UserLocation;
+  @prop({ type: () => UserLocation }) // , type: () => String
+  public location: UserLocation; // Ref<UserLocation, string>;
 }
 
 export const UserModel = getModelForClass(User);
