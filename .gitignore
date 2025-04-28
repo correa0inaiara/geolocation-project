@@ -1,6 +1,4 @@
 node_modules
-package-lock.json
-.env.keys
 resources
 coverage
 *.log
@@ -11,4 +9,3 @@ db_backup
 .flaskenv*
 !.env.project
 !.env.vault
-.env
