@@ -6,7 +6,7 @@ interface DataRows {
 }
 
 export interface UsersData {
-  data: unknown | unknown[] | DataRows
+  data: DataRows
 }
 
 export interface IUserData {
