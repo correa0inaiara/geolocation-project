@@ -11,7 +11,11 @@ export const getCoordinatesFromAddress = async function (
   const config = {
     method: 'get',
     url:
-      process.env.GEOAPIFY_BASE_URL + '/search?text=' + params + '&apiKey=' + process.env.GEOAPIFY_KEY,
+      process.env.GEOAPIFY_BASE_URL +
+      '/search?text=' +
+      params +
+      '&apiKey=' +
+      process.env.GEOAPIFY_KEY,
     headers: {},
   };
 
@@ -62,7 +66,8 @@ export const getAddressFromCoordinates = async function (
 
   const config = {
     method: 'get',
-    url: process.env.GEOAPIFY_BASE_URL + '/reverse?' + params + '&apiKey=' + process.env.GEOAPIFY_KEY,
+    url:
+      process.env.GEOAPIFY_BASE_URL + '/reverse?' + params + '&apiKey=' + process.env.GEOAPIFY_KEY,
     headers: {},
   };
 

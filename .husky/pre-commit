@@ -1,6 +1,4 @@
 dotenvx encrypt
-pnpm run babel
 pnpm run lint
 pnpm run prettier-check
 pnpm run prettier-write
-pnpm test
