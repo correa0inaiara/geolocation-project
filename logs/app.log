@@ -1,0 +1,26 @@
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":18542,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T16:09:44.777Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":18542,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T16:09:45.030Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":18542,"level":50,"database":{},"msg":"","time":"2025-04-28T16:09:45.036Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":18542,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T16:09:45.042Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":18542,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":null},"msg":"","time":"2025-04-28T16:10:47.603Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":18542,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":null},"msg":"","time":"2025-04-28T16:11:00.806Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":21044,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T16:30:14.498Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":21044,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T16:30:14.846Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":21044,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T16:30:14.856Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":21044,"level":30,"database":"banco de dados conectado","msg":"","time":"2025-04-28T16:30:15.709Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":29018,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T17:00:42.842Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":29018,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T17:00:43.570Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":29018,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T17:00:43.581Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":29018,"level":30,"database":"banco de dados conectado","msg":"","time":"2025-04-28T17:00:44.679Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":2103,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T17:29:06.161Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":2103,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T17:29:06.477Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":2103,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T17:29:06.501Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":2103,"level":30,"database":"banco de dados conectado","msg":"","time":"2025-04-28T17:29:08.486Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3332,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T17:34:11.119Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3332,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T17:34:11.364Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3332,"level":50,"database":{},"msg":"","time":"2025-04-28T17:34:11.370Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3332,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T17:34:11.375Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3637,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T17:35:02.014Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3637,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T17:35:02.198Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3637,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T17:35:02.207Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":3637,"level":30,"database":"banco de dados conectado","msg":"","time":"2025-04-28T17:35:02.955Z","v":0}

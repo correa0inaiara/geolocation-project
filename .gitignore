@@ -1,7 +1,6 @@
 node_modules
 resources
 coverage
-*.log
 *.txt
 _*
 db_backup
