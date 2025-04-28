@@ -1,13 +1,22 @@
-<script setup>
-import { RouterView } from 'vue-router'
-</script>
-
 <template>
   <div class="container">
+    <HeaderComponent />
     <RouterView></RouterView>
+    <FooterComponent />
   </div>
 </template>
 
-<style scoped>
+<script lang='ts'>
+import { defineComponent } from 'vue'
+import HeaderComponent from './components/HeaderComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
+
+export default defineComponent({
+  name: "App",
+  components: { HeaderComponent, FooterComponent }
+})
+</script>
+
+<style>
 
 </style>

@@ -1,4 +1,4 @@
-import { UsersData } from '@/interfaces/IUser';
+import { IUser, UsersData } from '@/interfaces/IUser';
 import { API_URL } from '@/utils/globals';
 import axios from 'axios'
 
@@ -16,7 +16,7 @@ export async function getUsers() {
   }
 }
 
-export async function getUserById(userId) {
+export async function getUserById(userId: string) {
   try {
     const response = await axios.get(API_URL + '/users/' + userId);
     const result = response.data.rows ? response.data.rows : response.data;
@@ -28,7 +28,7 @@ export async function getUserById(userId) {
   }
 }
 
-export async function saveUser(newUser) {
+export async function saveUser(newUser: IUser) {
   try {
     const response = await axios.post(API_URL + '/users', newUser);
     const result = response.data.rows ? response.data.rows : response.data;
@@ -40,7 +40,7 @@ export async function saveUser(newUser) {
   }
 }
 
-export async function updateUser(userId) {
+export async function updateUser(userId: string) {
   try {
     const response = await axios.put(API_URL + '/users/' + userId);
     const result = response.data.rows ? response.data.rows : response.data;
@@ -52,7 +52,7 @@ export async function updateUser(userId) {
   }
 }
 
-export async function deleteUser(userId) {
+export async function deleteUser(userId: string) {
   try {
     const response = await axios.delete(API_URL + '/users/' + userId);
     const result = response.data.rows ? response.data.rows : response.data;
