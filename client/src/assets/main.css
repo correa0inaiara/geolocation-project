@@ -1,115 +1,35 @@
-html {
-  box-sizing: border-box
+/* @import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit
-}
-
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  resize: none;
-}
-
-h1 {
-  text-align: center;
-  text-transform: uppercase;
-  color: #4CAF50;
-}
-
-p {
-  text-indent: 50px;
-  text-align: justify;
-  letter-spacing: 3px;
-}
-
-a {
+a,
+.green {
   text-decoration: none;
-  color: #008CBA;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
 }
 
-.center-container {
-  text-align: center;
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
 }
 
-#posts {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
 
-#posts td,
-#customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#posts tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#posts tr:hover {
-  background-color: #ddd;
-}
-
-#posts th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-
-.btn {
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px;
-}
-
-.btn-green {
-  background-color: #04AA6D;
-}
-
-.btn-blue {
-  background-color: #008CBA;
-}
-
-.btn-red {
-  background-color: #f44336;
-}
-/* 
-.center-button {
-  display: inline-block;
-  margin: auto;
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
 } */
-
-input[type=text],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
