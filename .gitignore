@@ -10,3 +10,4 @@ db_backup
 !.env.vault
 .vercel
 vercel.json
+mongo-data
