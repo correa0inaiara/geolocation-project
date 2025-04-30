@@ -1,12 +1,16 @@
 const translation = {
   serverInit: 'Servidor iniciando',
   serverHost: 'escutando em {{host}}:{{port}}',
+  dotenvxHello: 'Hello {{env}}',
   testsServerInit: 'Servidor de testes iniciando',
   testsServerHost: 'escutando testes em {{host}}:{{port}}',
   databaseInit: 'iniciando banco de dados',
   databaseConn: 'banco de dados conectado',
   databaseConnError: 'Banco de dados com problema na conexão',
   databaseDisconnectError: 'Banco de dados com problema na desconexão',
+  lib: {
+    noResults: 'Resultados não encontrados',
+  },
   libPolygonValidation: `Corpo da requisição inválido. Deve ser do tipo Polygon (GeoJSON). 
     Exemplo: 
     {

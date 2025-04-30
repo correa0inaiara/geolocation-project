@@ -1,10 +1,9 @@
 node_modules
-client
 public
 db_backup
+**/mongo-data
 *.hbs
 resources
-package-lock.json
 *.log
 *.txt
 coverage

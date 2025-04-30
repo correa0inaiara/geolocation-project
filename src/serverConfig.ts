@@ -1,6 +1,6 @@
 import app from 'express';
 import cors from 'cors';
-import { BASE_PATH, FRONT_HOSTNAME } from './globals';
+import { BASE_PATH, DEFAULT_LANG_MESSAGE, FRONT_HOSTNAME } from './globals';
 import { userRouter } from './routes/userRoutes';
 import { regionRouter } from './routes/regionRoutes';
 import { searchRouter } from './routes/searchRoutes';
@@ -10,7 +10,7 @@ import i18next from './i18n';
 import QueryBodyMiddleware from './middleware/QueryBodyMiddleware';
 
 // init i18next middleware
-i18next.t('serverInit');
+i18next.t('serverInit', DEFAULT_LANG_MESSAGE);
 
 // initializing server
 const server = app();

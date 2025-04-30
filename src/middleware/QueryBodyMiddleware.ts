@@ -5,6 +5,7 @@ import { ERROR_STATUS, STATUS } from '../enums';
 import i18next from '../i18n';
 import { log } from '../logs';
 import { CustomError } from '../classes/Errors';
+import { DEFAULT_LANG_MESSAGE } from '../globals';
 
 export default function QueryBodyMiddleware(req: Request, res: Response, next: NextFunction) {
   /**
@@ -26,7 +27,7 @@ export default function QueryBodyMiddleware(req: Request, res: Response, next: N
     const bool = parseBoolean(queryBody.expand);
     console.log('bool', bool);
     if (bool == -1) {
-      const message = i18next.t('apiUnsupportedQueryParameter');
+      const message = i18next.t('apiUnsupportedQueryParameter', DEFAULT_LANG_MESSAGE);
       const new_error = new CustomError(ERROR_STATUS.NOT_ACCEPTABLE, message, null);
       log.error({ api: new_error });
       return res.status(STATUS.NOT_ACCEPTABLE).json(new_error);

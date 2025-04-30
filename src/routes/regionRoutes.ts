@@ -1,13 +1,13 @@
 import * as server from 'express';
 import { RegionModel } from '../models/regionModels';
-import { ERROR_STATUS, LOGTYPE_VALUE, STATUS } from '../enums';
+import { ERROR_STATUS, LogType, STATUS } from '../enums';
 import { RegionLocation } from '../models/regionLocationModel';
 import { isObjectID, isValid, parseBoolean } from '../utils';
 import handleErrorResponse from './routerHandlers';
 
 export const regionRouter = server.Router();
 
-regionRouter.get('/', async (req, res) => {
+regionRouter.get('/', async (req, res): Promise<Response | > => {
   const { page, limit } = req.query;
   let { expand } = req.query;
 
@@ -46,8 +46,7 @@ regionRouter.get('/', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
-      req,
+      LogType.API,
       res,
     );
   }
@@ -78,8 +77,7 @@ regionRouter.get('/:id', async (req, res) => {
         'apiRegionNotFound',
         ERROR_STATUS.NOT_FOUND,
         null,
-        LOGTYPE_VALUE.API,
-        req,
+        LogType.API,
         res,
       );
     }
@@ -90,8 +88,7 @@ regionRouter.get('/:id', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
-      req,
+      LogType.API,
       res,
     );
   }
@@ -106,8 +103,7 @@ regionRouter.post('/', async (req, res) => {
         'apiRegionLocationValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
-        req,
+        LogType.API,
         res,
       );
     }
@@ -130,8 +126,7 @@ regionRouter.post('/', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
-      req,
+      LogType.API,
       res,
     );
   }
@@ -147,8 +142,7 @@ regionRouter.put('/:id', async (req, res) => {
       'apiRegionUpdateParametersMissing',
       ERROR_STATUS.BAD_REQUEST,
       null,
-      LOGTYPE_VALUE.API,
-      req,
+      LogType.API,
       res,
     );
   }
@@ -161,8 +155,7 @@ regionRouter.put('/:id', async (req, res) => {
         'apiRegionNotFound',
         ERROR_STATUS.NOT_FOUND,
         null,
-        LOGTYPE_VALUE.API,
-        req,
+        LogType.API,
         res,
       );
     }
@@ -172,8 +165,7 @@ regionRouter.put('/:id', async (req, res) => {
         'apiRegionUserValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
-        req,
+        LogType.API,
         res,
       );
     }
@@ -183,8 +175,7 @@ regionRouter.put('/:id', async (req, res) => {
         'apiRegionLocationValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
-        req,
+        LogType.API,
         res,
       );
     }
@@ -216,7 +207,7 @@ regionRouter.put('/:id', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -234,7 +225,7 @@ regionRouter.delete('/:id', async (req, res) => {
         'apiRegionNotFound',
         ERROR_STATUS.NOT_FOUND,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -246,7 +237,7 @@ regionRouter.delete('/:id', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );

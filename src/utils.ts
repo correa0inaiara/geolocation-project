@@ -1,10 +1,19 @@
+
 import { mongoose } from '@typegoose/typegoose';
 import { LANG } from './enums';
+
+// export function isGeoApiResponse(data: unknown): data is LibResponse {
+//   return (
+//     typeof data === 'object' &&
+//     (data?.results === undefined || Array.isArray(data?.results)) &&
+//     (data?.query === undefined || typeof data?.query === 'object')
+//   );
+// }
 
 // validate accept language header parameter
 export const getValidLangFromAcceptLanguage = function (
   acceptLanguage: string | undefined | null,
-  languagesArr: Array<string>,
+  languagesArr: string[],
 ) {
   let lng = '';
 

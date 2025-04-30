@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    // "module": "Preserve",
-    "moduleDetection": "auto",
+    "module": "Preserve",
+    "moduleDetection": "force",
     "target": "ES2024",
     "outDir": "./build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,

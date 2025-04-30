@@ -1,54 +1,63 @@
-import { isValid } from '../utils';
+import { GeoResult } from '../interfaces/ILibResponse'
 
 export class Coordinates {
-  coordinates: [number, number];
+  constructor(public lat?: number, public lon?: number) {}
 
-  constructor(datasource: DataSource) {
-    this.coordinates[0] = datasource.lon;
-    this.coordinates[1] = datasource.lat;
+  static fromApiResponse(data: GeoResult): Coordinates {
+    return new Coordinates(
+      data.lon,
+      data.lat
+    )
+  }
+
+  hasCoordinates(): boolean {
+    return this.lon !== undefined && this.lat !== undefined
   }
 }
 
 export class Address {
-  address: string;
-  fullAddress: string;
+  constructor(
+    public address_1: string,
+    public address_2: string,
+  ) {}
 
-  constructor(datasource: DataSource) {
-    this.address = datasource.address1 + ' ' + datasource.address2;
-    this.fullAddress = datasource.formatted;
+  static fromApiResponse(data: GeoResult): Address {
+    return new Address(
+      data.address_line1 ?? '',
+      data.address_line2 ?? ''
+    )
+  }
+
+  hasAddress(): boolean {
+    return this.address_1 !== '' && this.address_2 !== ''
   }
 }
 
-export class DataSource {
-  lon: number;
-  lat: number;
-  address1: string;
-  address2: string;
-  formatted: string;
-  city?: string;
-  state?: string;
-  country?: string;
+export class GeoLocation {
+  constructor(
+    public lon?: number,
+    public lat?: number,
+    public address1?: string,
+    public address2?: string,
+    public formatted?: string,
+    public city?: string,
+    public state?: string,
+    public country?: string
+  ) {}
 
-  constructor(data) {
-    if (data?.type == 'Feature' || isValid(data?.properties)) data = data.properties;
-    this.lon = data.lon;
-    this.lat = data.lat;
-    this.address1 = data.address_line1;
-    this.address2 = data.address_line2;
-    this.formatted = data.formatted;
-    this.city = data?.city;
-    this.state = data?.state;
-    this.country = data?.country;
+  static fromApiResponse(data: GeoResult): GeoLocation {
+    return new GeoLocation(
+      data.lon,
+      data.lat,
+      data.address_line1,
+      data.address_line2,
+      data.formatted,
+      data.city,
+      data.state,
+      data.country
+    )
   }
 }
 
-/**
- * SERVER: for messages regarding the server, specifically
- * API: for messages regarding any of the routes
- * TESTS: for messages regarding the tests
- * DATABASE: for messages regarding the database
- * LANG: for messages regarding internationalization
- * LIB: for messages regarding the geoapify api
- * OTHER: for any other generic messages
- */
-export type LogType = 'SERVER' | 'API' | 'TESTS' | 'DATABASE' | 'LANG' | 'LIB' | 'OTHER';
+
+// https://apidocs.geoapify.com/docs/geocoding/forward-geocoding/

@@ -2,6 +2,7 @@ import { mongoose } from '@typegoose/typegoose';
 import { isValid } from '../utils';
 import { log } from '../logs';
 import i18next from '../i18n';
+import { DEFAULT_LANG_MESSAGE } from '../globals';
 
 export const isRegionLocationValid = function (
   this: mongoose.Document,
@@ -10,7 +11,7 @@ export const isRegionLocationValid = function (
   let message: string = '';
 
   if (!isValid(coordinates)) {
-    message = i18next.t('apiRegionLocationCoordinatesValidation');
+    message = i18next.t('apiRegionLocationCoordinatesValidation', DEFAULT_LANG_MESSAGE);
     log.error({ api: message });
     this.invalidate('coordinates', message, coordinates);
     return;
@@ -18,14 +19,14 @@ export const isRegionLocationValid = function (
 
   for (const polygons of coordinates) {
     if (polygons.length < 4) {
-      message = i18next.t('apiRegionLocationCoordinatesInvalid');
+      message = i18next.t('apiRegionLocationCoordinatesInvalid', DEFAULT_LANG_MESSAGE);
       log.error({ api: message });
       this.invalidate('coordinates', message, coordinates);
       return;
     }
     const size = polygons.length;
     if (polygons[0][0] != polygons[size - 1][0] || polygons[0][1] != polygons[size - 1][1]) {
-      message = i18next.t('apiRegionLocationPolygonCoordinatesInvalid');
+      message = i18next.t('apiRegionLocationPolygonCoordinatesInvalid', DEFAULT_LANG_MESSAGE);
       log.error({ api: message });
       this.invalidate('coordinates', message, coordinates);
       return;
@@ -33,14 +34,14 @@ export const isRegionLocationValid = function (
 
     for (const polygon of polygons) {
       if (polygon.length != 2) {
-        message = i18next.t('apiRegionLocationCoordinatesOrder');
+        message = i18next.t('apiRegionLocationCoordinatesOrder', DEFAULT_LANG_MESSAGE);
         log.error({ api: message });
         this.invalidate('coordinates', message, coordinates);
         return;
       }
 
       if (typeof polygon[0] != 'number' || typeof polygon[1] != 'number') {
-        message = i18next.t('apiRegionLocationCoordinatesInformation');
+        message = i18next.t('apiRegionLocationCoordinatesInformation', DEFAULT_LANG_MESSAGE);
         log.error({ api: message });
         this.invalidate('coordinates', message, coordinates);
         return;

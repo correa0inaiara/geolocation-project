@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { STATUS, ERROR_STATUS, LOGTYPE_VALUE } from '../enums';
+import { STATUS, ERROR_STATUS, LogType } from '../enums';
 import { RegionModel } from '../models/regionModels';
 import { getAddressFromCoordinates, getCoordinatesFromAddress } from '../lib';
 import { isValid } from '../utils';
@@ -20,7 +20,7 @@ searchRouter.post('/distance', async function (req: Request, res: Response) {
         'libPolygonValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -36,7 +36,7 @@ searchRouter.post('/distance', async function (req: Request, res: Response) {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -53,7 +53,7 @@ searchRouter.post('/point', async function (req: Request, res: Response) {
         'libPointValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -69,7 +69,7 @@ searchRouter.post('/point', async function (req: Request, res: Response) {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -86,7 +86,7 @@ searchRouter.post('/coordinates', async function (req, res) {
         'libAddressValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -111,7 +111,7 @@ searchRouter.post('/coordinates', async function (req, res) {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -128,7 +128,7 @@ searchRouter.post('/address', async function (req, res) {
         'libCoordinatesValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -153,7 +153,7 @@ searchRouter.post('/address', async function (req, res) {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );

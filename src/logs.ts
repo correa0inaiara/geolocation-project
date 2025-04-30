@@ -1,19 +1,17 @@
-import * as bunyan from 'bunyan';
+import Logger, * as bunyan from 'bunyan';
 
-export const log = bunyan.createLogger({
+const streams: bunyan.Stream[] = [
+  {
+    level: 'info',
+    path: './logs/app.log',
+  },
+  {
+    level: 'error',
+    path: './logs/error.log',
+  }
+]
+
+export const log: Logger = bunyan.createLogger({
   name: 'app',
-  streams: [
-    {
-      level: 'info',
-      stream: process.stdout,
-    },
-    {
-      level: 'info',
-      path: './logs/app.log',
-    },
-    {
-      level: 'error',
-      path: './logs/error.log',
-    },
-  ],
+  streams: streams,
 });

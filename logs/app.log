@@ -28,3 +28,130 @@
 {"name":"app","hostname":"DESKTOP-K2IF0EU","pid":5420,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T17:42:42.509Z","v":0}
 {"name":"app","hostname":"DESKTOP-K2IF0EU","pid":5420,"level":50,"database":{},"msg":"","time":"2025-04-28T17:42:42.517Z","v":0}
 {"name":"app","hostname":"DESKTOP-K2IF0EU","pid":5420,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T17:42:42.524Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19787,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-28T19:16:09.598Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19787,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-28T19:16:09.929Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19787,"level":50,"database":{},"msg":"","time":"2025-04-28T19:16:09.936Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19787,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-28T19:16:09.942Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":10801,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:17:21.000Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":10801,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:17:21.393Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":10801,"level":50,"database":{},"msg":"","time":"2025-04-29T00:17:21.400Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":10801,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:17:21.405Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":11030,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:17:50.487Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":11030,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:17:50.769Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":11030,"level":50,"database":{},"msg":"","time":"2025-04-29T00:17:50.777Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":11030,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:17:50.782Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":11030,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":null},"msg":"","time":"2025-04-29T00:18:47.465Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14266,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:25:58.354Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14266,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:25:59.301Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14266,"level":50,"database":{},"msg":"","time":"2025-04-29T00:25:59.310Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14901,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:27:09.850Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14901,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:27:10.262Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14901,"level":50,"database":{},"msg":"","time":"2025-04-29T00:27:10.283Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14901,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:27:10.300Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":14901,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:27:10.300Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19042,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:41:20.533Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19042,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:41:20.795Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19042,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:41:20.799Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19042,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:41:20.800Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19042,"level":50,"database":{"message":"getaddrinfo ENOTFOUND mongo","reason":{"type":"Unknown","servers":{},"stale":false,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"setName":null,"maxElectionId":null,"maxSetVersion":null,"commonWireVersion":0,"logicalSessionTimeoutMinutes":null}},"msg":"","time":"2025-04-29T00:41:50.635Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19450,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:42:17.934Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19450,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:42:18.223Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19450,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T00:42:18.227Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":19450,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:42:18.228Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22150,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:51:40.200Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22150,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:51:40.543Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22150,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:51:40.551Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22150,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:51:40.552Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22381,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:51:53.783Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22381,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:51:54.037Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22381,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:51:54.041Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22381,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:51:54.042Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22819,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:53:05.698Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22819,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:53:05.970Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22819,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:53:05.976Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22819,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:53:05.977Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22958,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:53:30.130Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22958,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:53:30.692Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22958,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:53:30.710Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":22958,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:53:30.710Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23060,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:53:39.378Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23060,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:53:39.602Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23060,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:53:39.607Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23060,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:53:39.608Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23125,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:53:45.198Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23125,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:53:45.562Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23125,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:53:45.572Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23125,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:53:45.573Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23240,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:53:55.434Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23240,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:53:55.671Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23240,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:53:55.685Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23240,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:53:55.685Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23405,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:54:06.950Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23405,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:54:07.227Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23405,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:54:07.234Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23405,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:54:07.235Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23514,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:54:15.148Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23514,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:54:15.480Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23514,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:54:15.492Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23514,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:54:15.493Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23631,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:54:19.821Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23631,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:54:20.032Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23631,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:54:20.036Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23631,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:54:20.036Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23631,"level":50,"database":{"message":"getaddrinfo ENOTFOUND mongo","reason":{"type":"Unknown","servers":{},"stale":false,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"setName":null,"maxElectionId":null,"maxSetVersion":null,"commonWireVersion":0,"logicalSessionTimeoutMinutes":null}},"msg":"","time":"2025-04-29T00:54:49.860Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23857,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:54:54.683Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23857,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:54:54.904Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23857,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:54:54.909Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23857,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:54:54.909Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23931,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:55:02.732Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23931,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:55:03.333Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23931,"level":50,"database":{},"msg":"","time":"2025-04-29T00:55:03.346Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23931,"level":30,"server":"Hello ","msg":"","time":"2025-04-29T00:55:03.353Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":23931,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:55:03.355Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24193,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:55:17.303Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24193,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:55:17.592Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24193,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T00:55:17.615Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24193,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:55:17.617Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24342,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:55:37.794Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24342,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:55:38.168Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24342,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T00:55:38.185Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24342,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:55:38.186Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24418,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:55:42.347Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24418,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:55:42.715Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24418,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T00:55:42.719Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24418,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:55:42.719Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24462,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:55:46.518Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24462,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:55:46.713Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24462,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T00:55:46.717Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24462,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:55:46.718Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24462,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":null},"msg":"","time":"2025-04-29T00:56:03.295Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24462,"level":50,"database":{"message":"getaddrinfo ENOTFOUND mongo","reason":{"type":"Unknown","servers":{},"stale":false,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"setName":null,"maxElectionId":null,"maxSetVersion":null,"commonWireVersion":0,"logicalSessionTimeoutMinutes":null}},"msg":"","time":"2025-04-29T00:56:16.545Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24731,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T00:56:19.112Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24731,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T00:56:19.321Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24731,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T00:56:19.326Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24731,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T00:56:19.326Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":24731,"level":50,"database":{"message":"getaddrinfo ENOTFOUND mongo","reason":{"type":"Unknown","servers":{},"stale":false,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"setName":null,"maxElectionId":null,"maxSetVersion":null,"commonWireVersion":0,"logicalSessionTimeoutMinutes":null}},"msg":"","time":"2025-04-29T00:56:49.145Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38155,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T16:34:37.318Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38155,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T16:34:37.661Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38155,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T16:34:37.670Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38155,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T16:34:37.671Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38155,"level":50,"database":{"message":"getaddrinfo ENOTFOUND mongo","reason":{"type":"Unknown","servers":{},"stale":false,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"setName":null,"maxElectionId":null,"maxSetVersion":null,"commonWireVersion":0,"logicalSessionTimeoutMinutes":null}},"msg":"","time":"2025-04-29T16:35:07.345Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38155,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":null},"msg":"","time":"2025-04-29T16:35:19.319Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38624,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T16:35:43.839Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38624,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T16:35:44.308Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38624,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T16:35:44.314Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38624,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T16:35:44.315Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38624,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":null},"msg":"","time":"2025-04-29T16:35:59.416Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38624,"level":50,"database":{"message":"getaddrinfo ENOTFOUND database","reason":{"type":"Unknown","servers":{},"stale":false,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"setName":null,"maxElectionId":null,"maxSetVersion":null,"commonWireVersion":0,"logicalSessionTimeoutMinutes":null}},"msg":"","time":"2025-04-29T16:36:13.891Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38989,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T16:36:29.179Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38989,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T16:36:29.353Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38989,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T16:36:29.364Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38989,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T16:36:29.365Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":38989,"level":30,"database":"banco de dados conectado","msg":"","time":"2025-04-29T16:36:29.414Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":30,"database":"iniciando banco de dados","msg":"","time":"2025-04-29T16:38:25.618Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":30,"server":"Servidor iniciando","msg":"","time":"2025-04-29T16:38:25.819Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":30,"server":"Hello development","msg":"","time":"2025-04-29T16:38:25.834Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":30,"server":"escutando em localhost:3003","msg":"","time":"2025-04-29T16:38:25.834Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":30,"database":"banco de dados conectado","msg":"","time":"2025-04-29T16:38:25.887Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":50,"api":"Coordenadas (coordinates) são inválidas","msg":"","time":"2025-04-29T16:38:43.240Z","v":0}
+{"name":"app","hostname":"DESKTOP-K2IF0EU","pid":39646,"level":50,"API":{"type":{"code":500,"name":"Internal Server Error"},"message":"","error":"{\"errors\":{\"location.coordinates\":{\"stringValue\":\"\\\"[ -52.4618214, -28.5349844 ]\\\"\",\"valueType\":\"Array\",\"kind\":\"Number\",\"value\":[-52.4618214,-28.5349844],\"path\":\"coordinates\",\"reason\":{\"generatedMessage\":true,\"code\":\"ERR_ASSERTION\",\"actual\":false,\"expected\":true,\"operator\":\"==\"},\"name\":\"CastError\",\"message\":\"Cast to Number failed for value \\\"[ -52.4618214, -28.5349844 ]\\\" (type Array) at path \\\"coordinates\\\"\"}},\"_message\":\"User validation failed\",\"name\":\"ValidationError\",\"message\":\"User validation failed: location.coordinates: Cast to Number failed for value \\\"[ -52.4618214, -28.5349844 ]\\\" (type Array) at path \\\"coordinates\\\"\"}"},"msg":"","time":"2025-04-29T16:38:43.242Z","v":0}

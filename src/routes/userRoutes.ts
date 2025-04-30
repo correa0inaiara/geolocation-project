@@ -1,17 +1,17 @@
 import { Request, Response, Router } from 'express';
 import { UserModel } from '../models/userModels';
-import { ERROR_STATUS, LOGTYPE_VALUE, STATUS } from '../enums';
-import { UserLocation } from '../models/userLocationModel';
+import { ERROR_STATUS, LogType, STATUS } from '../enums';
 import { log } from '../logs';
 import { isValid } from '../utils';
 import i18next from '../i18n';
 import handleErrorResponse from './routerHandlers';
+import { DEFAULT_LANG_MESSAGE } from '../globals';
 
 export const userRouter = Router();
 
-userRouter.get('/', async (req: Request, res: Response) => {
+userRouter.get('/', (req: Request, res: Response) => {
   try {
-    const [users, total] = await Promise.all([
+    const [users, total] = Promise.all([
       UserModel.find().populate('location').exec(),
       UserModel.count(),
     ]);
@@ -25,8 +25,7 @@ userRouter.get('/', async (req: Request, res: Response) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
-      req,
+      LogType.API,
       res,
     );
   }
@@ -43,7 +42,7 @@ userRouter.get('/:id', async (req, res) => {
         'apiUserNotFound',
         ERROR_STATUS.NOT_FOUND,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -55,7 +54,7 @@ userRouter.get('/:id', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -71,7 +70,7 @@ userRouter.post('/', async (req, res) => {
         'apiUserSchemaValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -82,7 +81,7 @@ userRouter.post('/', async (req, res) => {
         'apiUserSchemaValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -93,7 +92,7 @@ userRouter.post('/', async (req, res) => {
         'apiUserLocationValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -135,7 +134,7 @@ userRouter.post('/', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -148,7 +147,7 @@ userRouter.put('/:id', async (req, res) => {
   params._id = id;
 
   if (!params) {
-    const message = i18next.t('apiUserUpdateParametersMissing');
+    const message = i18next.t('apiUserUpdateParametersMissing', DEFAULT_LANG_MESSAGE);
     log.error({ api: message });
     return res.status(STATUS.BAD_REQUEST).json({ message });
   }
@@ -161,7 +160,7 @@ userRouter.put('/:id', async (req, res) => {
         'apiUserNotFound',
         ERROR_STATUS.NOT_FOUND,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -172,7 +171,7 @@ userRouter.put('/:id', async (req, res) => {
         'apiUserSchemaValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -183,7 +182,7 @@ userRouter.put('/:id', async (req, res) => {
         'apiUserLocationValidation',
         ERROR_STATUS.BAD_REQUEST,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -239,7 +238,7 @@ userRouter.put('/:id', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );
@@ -257,7 +256,7 @@ userRouter.delete('/:id', async (req, res) => {
         'apiUserNotFound',
         ERROR_STATUS.NOT_FOUND,
         null,
-        LOGTYPE_VALUE.API,
+        LogType.API,
         req,
         res,
       );
@@ -269,7 +268,7 @@ userRouter.delete('/:id', async (req, res) => {
       null,
       ERROR_STATUS.INTERNAL_SERVER_ERROR,
       error,
-      LOGTYPE_VALUE.API,
+      LogType.API,
       req,
       res,
     );

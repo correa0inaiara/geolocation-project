@@ -1,12 +1,16 @@
 const translation = {
   serverInit: 'Server start up',
   serverHost: 'listining on {{host}}:{{port}}',
+  dotenvxHello: 'Hello {{env}}',
   testsServerInit: 'Tests server starting',
   testsServerHost: 'listening for tests on {{host}}:{{port}}',
   databaseInit: 'initializing database',
   databaseConn: 'database connected',
   databaseConnError: 'Database connecting error',
   databaseDisconnectError: 'Database disconnecting error',
+  lib: {
+    noResults: 'No results found',
+  },
   libPolygonValidation: `Invalid request body. Must be of type Polygon (GeoJSON).
     Example: 
     {

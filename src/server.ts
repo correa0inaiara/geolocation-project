@@ -1,29 +1,31 @@
 import app from 'express';
 import * as initDB from './database';
-import { log } from './logs';
-import swaggerUi from 'swagger-ui-express';
+import swaggerUi, { JsonObject } from 'swagger-ui-express';
 import fs from 'fs';
 import YAML from 'yaml';
-import i18next from './i18n';
-import { HOST, PORT } from './globals';
+import { ENVIRONMENT, HOST, PORT } from './globals';
 import server from './serverConfig';
+import { RegisterInfoLog } from './services/logService';
+import { LogType } from './enums';
 
-const file = fs.readFileSync('./swagger/swagger.yaml', 'utf8');
-const swaggerDocument = YAML.parse(file);
+const file: string = fs.readFileSync('./docs/swagger.yaml', 'utf8');
+const swaggerDocument = YAML.parse(file) as JsonObject;
 
 // initializing server
-log.info({ server: i18next.t('serverInit') });
+RegisterInfoLog('serverInit', LogType.SERVER)
 
 // initializing database
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const database = initDB;
+const database = initDB
 
 // swagger config
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // start server
 server.listen(PORT, HOST, () => {
-  log.info({ server: i18next.t('serverHost', { host: HOST, port: PORT }) });
+  // res.end(`Hello ${process.env.HELLO}`)
+  RegisterInfoLog('dotenvxHello', LogType.SERVER, { env: ENVIRONMENT })
+  RegisterInfoLog('serverHost', LogType.SERVER, { host: HOST, port: PORT })
 });
 
 export { server, app };

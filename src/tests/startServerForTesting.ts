@@ -16,7 +16,7 @@ let test_server;
 
 export async function startServer() {
   // initializing server
-  log.info({ tests: i18next.t('testsServerInit') });
+  log.info({ tests: i18next.t('testsServerInit', DEFAULT_LANG_MESSAGE) });
 
   test_server = app.listen(PORT_TESTS, HOST_TESTS, () => {
     log.info({ tests: i18next.t('testsServerHost', { host: HOST_TESTS, port: PORT_TESTS }) });

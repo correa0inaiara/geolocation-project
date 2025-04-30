@@ -1,60 +1,20 @@
 import globals from 'globals';
-import pluginJs from '@eslint/js';
+import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import babelParser from '@babel/eslint-parser';
+import typescriptEslintParser from '@typescript-eslint/parser'
 import jest from 'eslint-plugin-jest';
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+export default tseslint.config(
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: babelParser,
-    },
+      parser: typescriptEslintParser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      }
+    }
   },
-  {
-    files: ['**/*.js', '**/*.ts'],
-    languageOptions: {
-      ecmaVersion: 5,
-      sourceType: 'script',
-    },
-  },
-  {
-    languageOptions: {
-      globals: globals.browser,
-    },
-  },
-  {
-    rules: {
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/no-this-alias': ['error', { allowedNames: ['self'] }],
-    },
-  },
-  {
-    ignores: [
-      '*.md',
-      '.env.keys',
-      '.env',
-      '.dockerignore',
-      '.babelrc',
-      '.prettierignore',
-      '*.yml',
-      '*.config.js',
-      '*.log',
-      '*.json',
-      'client/*',
-      'swagger/*',
-      'node-modules/*',
-      'public/*',
-      'coverage/*',
-      'db_backup/*',
-      'resources/*',
-      '.husky/*',
-      '.vscode/*',
-    ],
-  },
-  // Configuration for test files
   {
     files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
     plugins: { jest },
@@ -67,6 +27,50 @@ export default [
       },
     },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-];
+  {
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
+  {
+    files: ['src/**/*.ts'],
+    rules: {
+      'no-warning-comments': 'off',
+      'no-unused-vars': 'off',
+      "@typescript-eslint/no-misused-promises": "off",
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-this-alias': ['error', { allowedNames: ['self'] }],
+      "@typescript-eslint/non-nullable-type-assertion-style": "off"
+    }
+  },
+  {
+    ignores: [
+      '*.md',
+      '.env*',
+      '.dockerignore',
+      '.gitignore',
+      '.prettierignore',
+      '*.yml',
+      '**/*.json',
+      'logs/*',
+      'docs/*',
+      'mongo-data/*',
+      'node_modules/*',
+      'public/*',
+      'coverage/*',
+      '.husky/*',
+      '.vscode/*',
+    ]
+  },
+  eslint.configs.recommended,
+  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.strictTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+);

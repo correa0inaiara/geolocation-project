@@ -1,5 +1,3 @@
-import { LogType } from './classes/Responses';
-
 export const STATUS = {
   OK: 200,
   CREATED: 201,
@@ -25,21 +23,12 @@ export const LANG = {
   ALL: '*',
 };
 
-/**
- * SERVER: for messages regarding the server, specifically
- * API: for messages regarding any of the routes
- * TESTS: for messages regarding the tests
- * DATABASE: for messages regarding the database
- * LANG: for messages regarding internationalization
- * LIB: for messages regarding the geoapify api
- * OTHER: for any other generic messages
- */
-export const LOGTYPE_VALUE = {
-  SERVER: 'SERVER' as LogType,
-  API: 'API' as LogType,
-  TESTS: 'TESTS' as LogType,
-  DATABASE: 'DATABASE' as LogType,
-  LANG: 'LANG' as LogType,
-  LIB: 'LIB' as LogType,
-  OTHER: 'OTHER' as LogType,
-};
+export enum LogType {
+  SERVER = 'SERVER',
+  API = 'API',
+  TESTS = 'TESTS',
+  DATABASE = 'DATABASE',
+  LANG = 'LANG',
+  LIB = 'LIB',
+  OTHER = 'OTHER'
+}

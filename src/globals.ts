@@ -1,5 +1,15 @@
+import * as dotenvx from '@dotenvx/dotenvx';
+
+// .env config
+dotenvx.config();
+
 // LANGS
 export const DEFAULT_LANG = 'pt';
+export const DEFAULT_LANG_MESSAGE = 'i18next error: key not found'
+
+// ENV
+export const ENVIRONMENT = process.env.HELLO ?? "development";
+// || 'development'
 
 // HOSTS
 export const HOST = 'localhost';
