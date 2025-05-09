@@ -1,6 +1,5 @@
 import { ERROR_STATUS, LogType } from '../enums';
-import { DEFAULT_LANG_MESSAGE } from '../globals';
-import i18next from '../i18n';
+import { i18n } from '../i18n';
 import { IError, ResponseError, TError, TLangError } from '../interfaces/IError';
 import { RegisterErrorLog } from '../services/logService';
 import { isValid } from '../utils';
@@ -21,7 +20,7 @@ export default function handleErrorResponse(
   origin: LogType,
   res: Response,
 ) {
-  const message = i18next.t(key ?? '', DEFAULT_LANG_MESSAGE);
+  const message = i18n.getTranslatedText(key);
   const new_error = new CustomError(error_status, message, error);
   const loggerObj = {};
   loggerObj[origin] = new_error;
@@ -67,7 +66,7 @@ export class CustomError {
     let message: string = params.key
 
     if (params.origin != LogType.LANG)
-      message = i18next.t(params.key, DEFAULT_LANG_MESSAGE);
+      message = i18n.getTranslatedText(params.key);
 
     const error = isValid(params.error) ? JSON.stringify(params.error) : null;
     const customResError = new CustomResponseError(params.error_status, message, error)

@@ -1,7 +1,6 @@
 import { CustomResponseError } from "../classes/Errors";
 import { LogType } from "../enums";
-import { DEFAULT_LANG_MESSAGE } from "../globals";
-import i18next from "../i18n";
+import { i18n } from "../i18n";
 import { LocaleReturn, ILocaleParams } from "../interfaces/ILocale";
 import { log } from "../logs";
 
@@ -9,11 +8,11 @@ export function RegisterInfoLog (localeKey: string, origin: LogType, params?: IL
   let info: LocaleReturn
   if (!params) {
     info = {
-      [origin]: i18next.t(localeKey, DEFAULT_LANG_MESSAGE)
+      [origin]: i18n.getTranslatedText(localeKey)
     }
   } else {
     info = {
-      [origin]: i18next.t(localeKey, DEFAULT_LANG_MESSAGE, params)
+      [origin]: i18n.getTranslatedText(localeKey, params)
     }
   }
   log.info(info)

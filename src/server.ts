@@ -7,9 +7,11 @@ import { ENVIRONMENT, HOST, PORT } from './globals';
 import server from './serverConfig';
 import { RegisterInfoLog } from './services/logService';
 import { LogType } from './enums';
+import { i18n } from './i18n';
 
 // initializing database with top-level await
 await initDB();
+await i18n.initialize()
 
 const file: string = fs.readFileSync('./docs/swagger.yaml', 'utf8');
 const swaggerDocument = YAML.parse(file) as JsonObject;

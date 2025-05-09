@@ -3,7 +3,7 @@ import { UserModel } from '../models/userModels';
 import { ERROR_STATUS, LogType, STATUS } from '../enums';
 import { log } from '../logs';
 import { isValid } from '../utils';
-import i18next from '../i18n';
+import { i18n } from '../i18n';
 import handleErrorResponse from './routerHandlers';
 import { DEFAULT_LANG_MESSAGE } from '../globals';
 
@@ -147,7 +147,7 @@ userRouter.put('/:id', async (req, res) => {
   params._id = id;
 
   if (!params) {
-    const message = i18next.t('apiUserUpdateParametersMissing', DEFAULT_LANG_MESSAGE);
+    const message = i18n.getTranslatedText('apiUserUpdateParametersMissing');
     log.error({ api: message });
     return res.status(STATUS.BAD_REQUEST).json({ message });
   }

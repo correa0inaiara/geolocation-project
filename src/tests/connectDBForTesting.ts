@@ -1,14 +1,13 @@
 import mongoose from 'mongoose';
 import { log } from '../logs';
-import i18next from '../i18n';
+import { i18n } from '../i18n';
 import * as dotenvx from '@dotenvx/dotenvx';
 import { CustomError } from '../classes/Errors';
 import { ERROR_STATUS } from '../enums';
-import { DEFAULT_LANG_MESSAGE } from '../globals';
 
 export async function connectDBForTesting() {
   try {
-    log.info({ tests: i18next.t('databaseInit', DEFAULT_LANG_MESSAGE) });
+    log.info({ tests: i18n.getTranslatedText('databaseInit') });
 
     // .env config
     dotenvx.config();
@@ -17,13 +16,13 @@ export async function connectDBForTesting() {
     await mongoose
       .connect(dbUri || '')
       .then(() => {
-        log.info({ tests: i18next.t('databaseConn', DEFAULT_LANG_MESSAGE) })
+        log.info({ tests: i18n.getTranslatedText('databaseConn') })
       })
       .catch((err: unknown) => {
         log.error({ tests: err })
       });
   } catch (error) {
-    const message = i18next.t('databaseConnError', DEFAULT_LANG_MESSAGE);
+    const message = i18n.getTranslatedText('databaseConnError');
     const new_error = new CustomError(ERROR_STATUS.INTERNAL_SERVER_ERROR, message, error);
     log.error({ tests: new_error });
   }
@@ -33,7 +32,7 @@ export async function disconnectDBForTesting() {
   try {
     await mongoose.connection.close();
   } catch (error) {
-    const message = i18next.t('databaseDisconnectError', DEFAULT_LANG_MESSAGE);
+    const message = i18n.getTranslatedText('databaseDisconnectError');
     const new_error = new CustomError(ERROR_STATUS.INTERNAL_SERVER_ERROR, message, error);
     log.error({ tests: new_error });
   }

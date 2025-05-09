@@ -1,18 +1,17 @@
 import app from 'express';
 import cors from 'cors';
-import { BASE_PATH, DEFAULT_LANG_MESSAGE, FRONT_HOSTNAME } from './globals';
+import { BASE_PATH, FRONT_HOSTNAME } from './globals';
 import { userRouter } from './routes/userRoutes';
 import { regionRouter } from './routes/regionRoutes';
 import { searchRouter } from './routes/searchRoutes';
 import * as bodyParser from 'body-parser';
 import LanguageMiddleware from './middleware/LanguageMiddleware';
-import i18next from './i18n';
+import { i18n } from './i18n';
 import QueryBodyMiddleware from './middleware/QueryBodyMiddleware';
 import { NextHandleFunction } from 'connect';
 
-
 // init i18next middleware
-i18next.t('serverInit', DEFAULT_LANG_MESSAGE);
+i18n.getTranslatedText('serverInit');
 
 // initializing server
 const server = app();

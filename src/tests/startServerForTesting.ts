@@ -5,26 +5,27 @@
 // import cors from 'cors'
 // import bodyParser from 'body-parser'
 import { log } from '../logs';
-import i18next from '../i18n';
 // import * as middleware from 'i18next-http-middleware'
 // import LanguageMiddleware from '../middleware/LanguageMiddleware';
 import { HOST_TESTS, PORT_TESTS } from '../globals';
 import server from '../serverConfig';
+import { i18n } from '../i18n';
+import { Server } from 'http';
 
 const app = server;
-let test_server;
+let test_server: Server;
 
-export async function startServer() {
+export function startServer(): Server {
   // initializing server
-  log.info({ tests: i18next.t('testsServerInit', DEFAULT_LANG_MESSAGE) });
+  log.info({ tests: i18n.getTranslatedText('testsServerInit') });
 
   test_server = app.listen(PORT_TESTS, HOST_TESTS, () => {
-    log.info({ tests: i18next.t('testsServerHost', { host: HOST_TESTS, port: PORT_TESTS }) });
+    log.info({ tests: i18n.getTranslatedText('testsServerHost', { host: HOST_TESTS, port: PORT_TESTS }) });
   });
 
   return test_server;
 }
 
-export async function closeServer(server) {
+export function closeServer(server: Server) {
   return server.close();
 }

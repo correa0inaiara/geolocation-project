@@ -3,10 +3,11 @@ import en from './../locales/en';
 import es from './../locales/es';
 import pt from './../locales/pt';
 import { LANG } from './enums';
-import { DEFAULT_LANG } from './globals';
+import { DEFAULT_LANG, DEFAULT_LANG_MESSAGE } from './globals';
 import II18nInstance from './interfaces/II18nInstance ';
-import { TLangError } from './interfaces/IError';
+import { ResponseError, TLangError } from './interfaces/IError';
 import { InternationalizationResponseError } from './classes/Errors';
+import { ILocaleParams } from './interfaces/ILocale';
 
 const i18nState: II18nInstance = {
   instance: i18next,
@@ -33,41 +34,62 @@ const options: InitOptions = {
   },
 }
 
-function handleError(err: unknown) {
+function handleError(err: unknown): ResponseError {
   const params: TLangError = { error: err }
   const customError = InternationalizationResponseError.defineResponseAndLog(params)
   console.log('customError', customError)
-  // return customError
+  return customError
 }
 
-export function initializeI18n(): II18nInstance {
+async function initializeI18n(): Promise<II18nInstance | ResponseError> {
 
   if (i18nState.isInitialized) {
     return i18nState
   }
 
-  i18next
+  const result = await i18next
     .init(options)
     .then((res: unknown) => {
       console.log('res', res)
       i18nState.t = i18next.t;
       i18nState.isInitialized = true;
+      
+      return i18nState
     })
     .catch((err: unknown) => {
       console.log('err', err)
-      handleError(err)
+      return handleError(err)
     })
 
-  return i18nState
-
+  return result
 }
 
-export default {
-  initialize: initializeI18n,
-  getInstance: (): II18nInstance => {
+function getInstance(): II18nInstance {
     if (!i18nState.isInitialized) {
       throw new Error('i18n not initialized. Call initializeI18n() first.')
     }
     return i18nState
   }
+
+const i18n = {
+  initialize: initializeI18n,
+  getTranslatedText,
+  changeLanguage
 }
+
+async function changeLanguage(lang: string) {
+  const { instance } = getInstance()
+  await instance.changeLanguage(lang)
+}
+
+function getTranslatedText(key: string, params?: ILocaleParams): string {
+  const { t } = getInstance()
+  if (params) {
+    return t(key, DEFAULT_LANG_MESSAGE, params)
+  }
+  return t(key, DEFAULT_LANG_MESSAGE)
+}
+
+// changeLanguage
+
+export { i18n }

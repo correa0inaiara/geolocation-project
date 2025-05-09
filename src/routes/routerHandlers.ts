@@ -1,9 +1,8 @@
 import { Response } from 'express';
 import { CustomError, ErrorStatus } from '../classes/Errors';
 import { log } from '../logs';
-import i18next from '../i18n';
+import { i18n } from '../i18n';
 import { LogType } from '../enums';
-import { DEFAULT_LANG_MESSAGE } from '../globals';
 import * as server from 'express';
 
 
@@ -14,7 +13,7 @@ export default function handleErrorResponse(
   origin: LogType,
   res: Response,
 ) {
-  const message = i18next.t(key ?? '', DEFAULT_LANG_MESSAGE);
+  const message = i18n.getTranslatedText(key);
   const new_error = new CustomError(error_status, message, error);
   const loggerObj = {};
   loggerObj[origin] = new_error;
