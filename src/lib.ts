@@ -1,14 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 import { LibResponseError } from './classes/Errors';
-import { ERROR_STATUS, LogType } from './enums';
 import { IAddressResponse, IGeocodeResponse } from './interfaces/ILibResponse';
 
 export function sendErrorMessage(error?: unknown, message?: string): LibResponseError {
   return new LibResponseError(
     message ?? null,
-    ERROR_STATUS.BAD_REQUEST,
-    error ?? null,
-    LogType.LIB,
+    error ?? null
   ) 
 }
 

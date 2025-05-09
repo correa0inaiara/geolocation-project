@@ -23,9 +23,15 @@ importers:
       '@typegoose/typegoose':
         specifier: ^11.5.0
         version: 11.8.1(mongoose@7.8.6)
+      '@types/body-parser':
+        specifier: ^1.19.5
+        version: 1.19.5
       '@types/bunyan':
         specifier: ^1.8.11
         version: 1.8.11
+      '@types/connect':
+        specifier: ^3.4.38
+        version: 3.4.38
       '@types/cors':
         specifier: ^2.8.17
         version: 2.8.17

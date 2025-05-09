@@ -10,6 +10,8 @@ export interface IError {
 
 export type TError = Omit<IError, 'error_status' | 'origin'>
 
+export type TLangError = Omit<IError, 'error_status' | 'origin' | 'key'>
+
 export interface ResponseError {
   code: number;
   error: CustomResponseError

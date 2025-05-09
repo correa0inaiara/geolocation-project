@@ -4,10 +4,12 @@ import { BASE_PATH, DEFAULT_LANG_MESSAGE, FRONT_HOSTNAME } from './globals';
 import { userRouter } from './routes/userRoutes';
 import { regionRouter } from './routes/regionRoutes';
 import { searchRouter } from './routes/searchRoutes';
-import bodyParser from 'body-parser';
+import * as bodyParser from 'body-parser';
 import LanguageMiddleware from './middleware/LanguageMiddleware';
 import i18next from './i18n';
 import QueryBodyMiddleware from './middleware/QueryBodyMiddleware';
+import { NextHandleFunction } from 'connect';
+
 
 // init i18next middleware
 i18next.t('serverInit', DEFAULT_LANG_MESSAGE);
@@ -29,8 +31,9 @@ server.use(LanguageMiddleware);
 server.use(QueryBodyMiddleware);
 
 // config json
+const bodyParserJSON: NextHandleFunction = bodyParser.json()
 server.use(app.json());
-server.use(bodyParser.json());
+server.use(bodyParserJSON);
 
 // server routes config
 server.use(BASE_PATH + '/users', userRouter);

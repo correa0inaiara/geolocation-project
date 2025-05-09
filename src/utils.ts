@@ -1,6 +1,7 @@
 
 import { mongoose } from '@typegoose/typegoose';
 import { LANG } from './enums';
+import { LocaleReturnFixForAny } from './interfaces/ILocale';
 
 // export function isGeoApiResponse(data: unknown): data is LibResponse {
 //   return (
@@ -37,16 +38,16 @@ export const getValidLangFromAcceptLanguage = function (
   return lng;
 };
 
-export const isAccepLanguageValid = function (acceptLanguage: string | null | undefined | unknown) {
+export const isAccepLanguageValid = function (acceptLanguage: string | null | undefined) {
   if (!isValid(acceptLanguage)) return false;
   if (typeof acceptLanguage != 'string') return false;
   return true;
 };
 
-export const isParameterDefined = function (param: string | null | undefined | unknown) {
-  const type = typeof param;
+export const isParameterDefined = function (param: string | null | undefined) {
+  // const type = typeof param;
   console.log('param', param);
-  if (type == null || param == undefined || param == '') return false;
+  if (param == undefined || param == '') return false;
   return true;
 };
 
@@ -56,30 +57,32 @@ export const getAllLanguages = function () {
 };
 
 // validate coordinates
-export const isCoordinate = function (param) {
-  const _param = param + '';
+export const isCoordinate = function (param: string) {
+  const _param = param;
   const regex = /^([-]?[\d]{1,3}\.{1}[\d]+)|([-]?[\d]{1,3})$/;
   const arr = regex.exec(_param);
   if (!isArray(arr)) return false;
   return true;
 };
 
-export const isLongitude = function (param) {
+export const isLongitude = function (param: number) {
   if (!isValid(param)) return false;
-  if (!isCoordinate(param)) return false;
+  const paramStr = String(param)
+  if (!isCoordinate(paramStr)) return false;
   if (param < -180 || param > 180) return false;
   return true;
 };
 
-export const isLatitude = function (param) {
+export const isLatitude = function (param: number) {
   if (!isValid(param)) return false;
-  if (!isCoordinate(param)) return false;
+  const paramStr = String(param)
+  if (!isCoordinate(paramStr)) return false;
   if (param < -90 || param > 90) return false;
   return true;
 };
 
 // validate model's id
-export const isObjectID = function (param) {
+export const isObjectID = function (param: string) {
   if (mongoose.Types.ObjectId.isValid(param)) {
     return true;
   }
@@ -87,19 +90,19 @@ export const isObjectID = function (param) {
 };
 
 // validate variable types
-export const isBoolean = function (param: string | null | undefined | unknown) {
+export const isBoolean = function (param: string | null | undefined) {
   if (!isValid(param)) return false;
   if (typeof param == 'boolean') return true;
   return false;
 };
 
-export const isString = function (param: string | null | undefined | unknown) {
+export const isString = function (param: string | null | undefined ) {
   if (!isValid(param)) return false;
   if (typeof param == 'string') return true;
   return false;
 };
 
-export const parseBoolean = function (param: string | null | undefined | unknown) {
+export const parseBoolean = function (param: string | null | undefined) {
   let _param = '';
 
   if (isBoolean(param)) return param;
@@ -110,7 +113,7 @@ export const parseBoolean = function (param: string | null | undefined | unknown
     const match = regex.exec(_param);
     console.log('match', match);
     if (isArray(match)) {
-      const bool = JSON.parse(_param);
+      const bool: boolean = JSON.parse(_param) as LocaleReturnFixForAny
       return bool;
     }
     return -1;

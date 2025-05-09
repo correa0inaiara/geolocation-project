@@ -11,7 +11,7 @@ import { ERROR_STATUS, STATUS } from '../enums';
 import { log } from '../logs';
 import i18next from '../i18n';
 
-export default async function LanguageMiddleware(req: Request, res: Response, next: NextFunction) {
+export default function LanguageMiddleware(req: Request, res: Response, next: NextFunction) {
   /*
    Identifica se o cabeçalho accept-language está definido
    - se está

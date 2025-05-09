@@ -1,7 +1,7 @@
 import { ERROR_STATUS, LogType } from '../enums';
 import { DEFAULT_LANG_MESSAGE } from '../globals';
 import i18next from '../i18n';
-import { IError, ResponseError, TError } from '../interfaces/IError';
+import { IError, ResponseError, TError, TLangError } from '../interfaces/IError';
 import { RegisterErrorLog } from '../services/logService';
 import { isValid } from '../utils';
 
@@ -57,16 +57,19 @@ export class CustomResponseError {
 
 export class CustomError {
   constructor(
-    public key: string | null,
-    public error_status: ErrorStatus,
-    public error: unknown,
-    public origin: LogType
+    public readonly key: string | null,
+    public readonly error_status: ErrorStatus,
+    public readonly error: unknown,
+    public readonly origin: LogType
   ) {}
 
   static defineResponseAndLog(params: IError): ResponseError {
-    const message = i18next.t(params.key, DEFAULT_LANG_MESSAGE);
-    const error = isValid(params.error) ? JSON.stringify(params.error) : null;
+    let message: string = params.key
 
+    if (params.origin != LogType.LANG)
+      message = i18next.t(params.key, DEFAULT_LANG_MESSAGE);
+
+    const error = isValid(params.error) ? JSON.stringify(params.error) : null;
     const customResError = new CustomResponseError(params.error_status, message, error)
 
     RegisterErrorLog(params.origin, customResError)
@@ -178,6 +181,24 @@ export class DBResponseError extends CustomError {
     
     super_params.error_status = ERROR_STATUS.INTERNAL_SERVER_ERROR
     super_params.origin = LogType.DATABASE
+    return super.defineResponseAndLog(super_params)
+  }
+}
+
+export class InternationalizationResponseError extends CustomError {
+  constructor(
+    public key: string | null,
+    public error: unknown
+  ) {
+    super(key ?? 'Internationalization Error', ERROR_STATUS.INTERNAL_SERVER_ERROR, error, LogType.LANG);
+  }
+
+  static defineResponseAndLog(params: TLangError): ResponseError {
+    const super_params: IError = params as IError
+    
+    super_params.key = 'Internationalization Error'
+    super_params.error_status = ERROR_STATUS.INTERNAL_SERVER_ERROR
+    super_params.origin = LogType.LANG
     return super.defineResponseAndLog(super_params)
   }
 }
