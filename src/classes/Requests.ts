@@ -11,7 +11,7 @@ export interface PolygonBody {
 };
 
 export interface QueryBody {
-  expand?: boolean;
+  expand?: string | undefined;
 };
 
 export class QueryParam {

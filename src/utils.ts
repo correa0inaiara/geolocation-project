@@ -15,7 +15,7 @@ import { LocaleReturnFixForAny } from './interfaces/ILocale';
 export const getValidLangFromAcceptLanguage = function (
   acceptLanguage: string | undefined | null,
   languagesArr: string[],
-) {
+): string {
   let lng = '';
 
   if (acceptLanguage) {
@@ -38,26 +38,26 @@ export const getValidLangFromAcceptLanguage = function (
   return lng;
 };
 
-export const isAccepLanguageValid = function (acceptLanguage: string | null | undefined) {
+export const isAccepLanguageValid = function (acceptLanguage: string | null | undefined): boolean {
   if (!isValid(acceptLanguage)) return false;
   if (typeof acceptLanguage != 'string') return false;
   return true;
 };
 
-export const isParameterDefined = function (param: string | null | undefined) {
+export const isParameterDefined = function (param: string | null | undefined): boolean {
   // const type = typeof param;
   console.log('param', param);
   if (param == undefined || param == '') return false;
   return true;
 };
 
-export const getAllLanguages = function () {
+export const getAllLanguages = function (): string[] {
   const languages = [LANG.PT, LANG.ES, LANG.EN];
   return languages;
 };
 
 // validate coordinates
-export const isCoordinate = function (param: string) {
+export const isCoordinate = function (param: string): boolean {
   const _param = param;
   const regex = /^([-]?[\d]{1,3}\.{1}[\d]+)|([-]?[\d]{1,3})$/;
   const arr = regex.exec(_param);
@@ -65,7 +65,7 @@ export const isCoordinate = function (param: string) {
   return true;
 };
 
-export const isLongitude = function (param: number) {
+export const isLongitude = function (param: number): boolean {
   if (!isValid(param)) return false;
   const paramStr = String(param)
   if (!isCoordinate(paramStr)) return false;
@@ -73,7 +73,7 @@ export const isLongitude = function (param: number) {
   return true;
 };
 
-export const isLatitude = function (param: number) {
+export const isLatitude = function (param: number): boolean {
   if (!isValid(param)) return false;
   const paramStr = String(param)
   if (!isCoordinate(paramStr)) return false;
@@ -82,7 +82,7 @@ export const isLatitude = function (param: number) {
 };
 
 // validate model's id
-export const isObjectID = function (param: string) {
+export const isObjectID = function (param: string): boolean {
   if (mongoose.Types.ObjectId.isValid(param)) {
     return true;
   }
@@ -90,22 +90,20 @@ export const isObjectID = function (param: string) {
 };
 
 // validate variable types
-export const isBoolean = function (param: string | null | undefined) {
+export const isBoolean = function (param: string | null | undefined): boolean {
   if (!isValid(param)) return false;
   if (typeof param == 'boolean') return true;
   return false;
 };
 
-export const isString = function (param: string | null | undefined ) {
+export const isString = function (param: unknown): boolean {
   if (!isValid(param)) return false;
   if (typeof param == 'string') return true;
   return false;
 };
 
-export const parseBoolean = function (param: string | null | undefined) {
-  let _param = '';
-
-  if (isBoolean(param)) return param;
+export const parseBoolean = function (param: unknown): boolean | -1 {
+  let _param: string
 
   if (isString(param)) {
     _param = param as string;
@@ -121,11 +119,9 @@ export const parseBoolean = function (param: string | null | undefined) {
   return -1;
 };
 
-export const isValid = function (param) {
+export const isValid = function (param: unknown): boolean {
   if (
     !param ||
-    param == null ||
-    param == undefined ||
     param == '' ||
     JSON.stringify(param) == '{}' ||
     JSON.stringify(param) == '[]'
@@ -135,7 +131,7 @@ export const isValid = function (param) {
   return true;
 };
 
-export const isArray = function (param) {
+export const isArray = function (param: unknown): boolean {
   if (!isValid(param)) return false;
   if (!(param instanceof Array)) return false;
   return true;

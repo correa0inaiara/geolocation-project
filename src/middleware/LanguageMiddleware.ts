@@ -6,10 +6,9 @@ import {
   isParameterDefined,
   isValid,
 } from '../utils';
-import { CustomError } from '../classes/Errors';
-import { ERROR_STATUS, STATUS } from '../enums';
-import { log } from '../logs';
+import { LangMiddlewareResponseError } from '../classes/Errors';
 import { i18n } from '../i18n';
+import { STATUS } from '../enums';
 
 export default async function LanguageMiddleware(req: Request, res: Response, next: NextFunction) {
 
@@ -22,18 +21,14 @@ export default async function LanguageMiddleware(req: Request, res: Response, ne
     if (isAcceptLangValid) {
       const firstLang = getValidLangFromAcceptLanguage(acceptLanguage, languages);
       if (!isValid(firstLang)) {
-        const message = i18n.getTranslatedText('i18nUnsupportedLangHeader');
-        const new_error = new CustomError(ERROR_STATUS.NOT_ACCEPTABLE, message, null);
-        log.error({ i18n: new_error });
-        return res.status(STATUS.NOT_ACCEPTABLE).json(new_error);
+        const error = LangMiddlewareResponseError.defineResponseAndLog()
+        return res.status(STATUS.NOT_ACCEPTABLE).json(error);
       }
 
       await i18n.changeLanguage(firstLang)
     } else {
-      const message = i18n.getTranslatedText('i18nUnsupportedLangHeader');
-      const new_error = new CustomError(ERROR_STATUS.NOT_ACCEPTABLE, message, null);
-      log.error({ i18n: new_error });
-      return res.status(STATUS.NOT_ACCEPTABLE).json(new_error);
+      const error = LangMiddlewareResponseError.defineResponseAndLog()
+      return res.status(STATUS.NOT_ACCEPTABLE).json(error);
     }
   }
 

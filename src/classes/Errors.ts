@@ -201,3 +201,44 @@ export class InternationalizationResponseError extends CustomError {
     return super.defineResponseAndLog(super_params)
   }
 }
+
+export class LangMiddlewareResponseError extends CustomError {
+  constructor(
+    public key: string | null,
+    public error: unknown
+  ) {
+    const _key = i18n.getTranslatedText('i18nUnsupportedLangHeader');
+    super(_key, ERROR_STATUS.NOT_ACCEPTABLE, null, LogType.API);
+  }
+
+  static defineResponseAndLog(): ResponseError {
+    const super_params: IError = {
+      error: null,
+      key: i18n.getTranslatedText('i18nUnsupportedLangHeader'),
+      error_status: ERROR_STATUS.NOT_ACCEPTABLE,
+      origin: LogType.API
+    }
+    return super.defineResponseAndLog(super_params)
+  }
+}
+
+
+export class QueryMiddlewareResponseError extends CustomError {
+  constructor(
+    public key: string | null,
+    public error: unknown
+  ) {
+    const _key = i18n.getTranslatedText('apiUnsupportedQueryParameter');
+    super(_key, ERROR_STATUS.NOT_ACCEPTABLE, null, LogType.API);
+  }
+
+  static defineResponseAndLog(): ResponseError {
+    const super_params: IError = {
+      error: null,
+      key: i18n.getTranslatedText('apiUnsupportedQueryParameter'),
+      error_status: ERROR_STATUS.NOT_ACCEPTABLE,
+      origin: LogType.API
+    }
+    return super.defineResponseAndLog(super_params)
+  }
+}
