@@ -7,7 +7,7 @@ import { ERROR_STATUS } from '../enums';
 
 export async function connectDBForTesting() {
   try {
-    log.info({ tests: i18n.getTranslatedText('databaseInit') });
+    log.info({ tests: i18n.getTranslatedText('database.init') });
 
     // .env config
     dotenvx.config();
@@ -16,13 +16,13 @@ export async function connectDBForTesting() {
     await mongoose
       .connect(dbUri || '')
       .then(() => {
-        log.info({ tests: i18n.getTranslatedText('databaseConn') })
+        log.info({ tests: i18n.getTranslatedText('database.conn') })
       })
       .catch((err: unknown) => {
         log.error({ tests: err })
       });
   } catch (error) {
-    const message = i18n.getTranslatedText('databaseConnError');
+    const message = i18n.getTranslatedText('database.connError');
     const new_error = new CustomError(ERROR_STATUS.INTERNAL_SERVER_ERROR, message, error);
     log.error({ tests: new_error });
   }
@@ -32,7 +32,7 @@ export async function disconnectDBForTesting() {
   try {
     await mongoose.connection.close();
   } catch (error) {
-    const message = i18n.getTranslatedText('databaseDisconnectError');
+    const message = i18n.getTranslatedText('database.disconnError');
     const new_error = new CustomError(ERROR_STATUS.INTERNAL_SERVER_ERROR, message, error);
     log.error({ tests: new_error });
   }

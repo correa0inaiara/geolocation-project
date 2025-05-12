@@ -17,7 +17,7 @@ const file: string = fs.readFileSync('./docs/swagger.yaml', 'utf8');
 const swaggerDocument = YAML.parse(file) as JsonObject;
 
 // initializing server
-RegisterInfoLog('serverInit', LogType.SERVER)
+RegisterInfoLog('server.init', LogType.SERVER)
 
 // swagger config
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -25,8 +25,8 @@ server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // start server
 server.listen(PORT, HOST, () => {
   // res.end(`Hello ${process.env.HELLO}`)
-  RegisterInfoLog('dotenvxHello', LogType.SERVER, { env: ENVIRONMENT })
-  RegisterInfoLog('serverHost', LogType.SERVER, { host: HOST, port: PORT })
+  RegisterInfoLog('server.dotenv', LogType.SERVER, { env: ENVIRONMENT })
+  RegisterInfoLog('server.host', LogType.SERVER, { host: HOST, port: PORT })
 });
 
 export { server, app };

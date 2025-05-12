@@ -17,10 +17,10 @@ let test_server: Server;
 
 export function startServer(): Server {
   // initializing server
-  log.info({ tests: i18n.getTranslatedText('testsServerInit') });
+  log.info({ tests: i18n.getTranslatedText('tests.server.init') });
 
   test_server = app.listen(PORT_TESTS, HOST_TESTS, () => {
-    log.info({ tests: i18n.getTranslatedText('testsServerHost', { host: HOST_TESTS, port: PORT_TESTS }) });
+    log.info({ tests: i18n.getTranslatedText('tests.server.host', { host: HOST_TESTS, port: PORT_TESTS }) });
   });
 
   return test_server;

@@ -12,19 +12,19 @@ export const isRegionValid = function (
   let message: string = '';
 
   if (!isValid(name)) {
-    message = i18n.getTranslatedText('apiRegionNameRequired');
+    message = i18n.getTranslatedText('api.region.validation.location.name');
     log.error({ api: message });
     this.invalidate('name', message, name);
   }
 
   if (!isObjectID(user)) {
-    message = i18n.getTranslatedText('apiRegionUserRequired');
+    message = i18n.getTranslatedText('api.region.validation.userRequired');
     log.error({ api: message });
     this.invalidate('user', message, user);
   }
 
   if (!isObjectID(location)) {
-    message = i18n.getTranslatedText('apiRegionLocationRequired');
+    message = i18n.getTranslatedText('api.region.validation.location.required');
     log.error({ api: message });
     this.invalidate('location', message, location);
   }

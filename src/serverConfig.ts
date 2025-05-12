@@ -11,7 +11,7 @@ import QueryBodyMiddleware from './middleware/QueryBodyMiddleware';
 import { NextHandleFunction } from 'connect';
 
 // init i18next middleware
-i18n.getTranslatedText('serverInit');
+i18n.getTranslatedText('server.init');
 
 // initializing server
 const server = app();

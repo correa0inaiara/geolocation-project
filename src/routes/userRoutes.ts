@@ -147,7 +147,7 @@ userRouter.put('/:id', async (req, res) => {
   params._id = id;
 
   if (!params) {
-    const message = i18n.getTranslatedText('apiUserUpdateParametersMissing');
+    const message = i18n.getTranslatedText('api.user.validation.missingParam');
     log.error({ api: message });
     return res.status(STATUS.BAD_REQUEST).json({ message });
   }
@@ -157,7 +157,7 @@ userRouter.put('/:id', async (req, res) => {
 
     if (!user) {
       return handleErrorResponse(
-        'apiUserNotFound',
+        'api.user.notFound',
         ERROR_STATUS.NOT_FOUND,
         null,
         LogType.API,
@@ -168,7 +168,7 @@ userRouter.put('/:id', async (req, res) => {
 
     if (params.address && params.location) {
       return handleErrorResponse(
-        'apiUserSchemaValidation',
+        'api.user.validation.schema',
         ERROR_STATUS.BAD_REQUEST,
         null,
         LogType.API,
@@ -179,7 +179,7 @@ userRouter.put('/:id', async (req, res) => {
 
     if (params.location && !params.location.coordinates) {
       return handleErrorResponse(
-        'apiUserLocationValidation',
+        'api.user.validation.location',
         ERROR_STATUS.BAD_REQUEST,
         null,
         LogType.API,
@@ -253,7 +253,7 @@ userRouter.delete('/:id', async (req, res) => {
 
     if (!user || user?.deletedCount == 0) {
       return handleErrorResponse(
-        'apiUserNotFound',
+        'api.user.notFound',
         ERROR_STATUS.NOT_FOUND,
         null,
         LogType.API,

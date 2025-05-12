@@ -7,7 +7,7 @@ export const isUserLocationValid = function (this: mongoose.Document, coordinate
   let message: string = '';
 
   if (!isValid(coordinates)) {
-    message = i18n.getTranslatedText('apiUserLocationCoordinatesValidation');
+    message = i18n.getTranslatedText('api.user.validation.coordinates.invalid');
     log.error({ api: message });
     this.invalidate('coordinates', message, coordinates);
   }

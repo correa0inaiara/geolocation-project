@@ -7,7 +7,7 @@ import handleErrorResponse from './routerHandlers';
 
 export const regionRouter = server.Router();
 
-regionRouter.get('/', async (req, res): Promise<Response | > => {
+regionRouter.get('/', async (req, res) => {
   const { page, limit } = req.query;
   let { expand } = req.query;
 

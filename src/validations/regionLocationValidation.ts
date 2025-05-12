@@ -9,7 +9,7 @@ export const isRegionLocationValid = function (
   let message: string = '';
 
   if (!isValid(coordinates)) {
-    message = i18n.getTranslatedText('apiRegionLocationCoordinatesValidation');
+    message = i18n.getTranslatedText('api.region.validation.coordinates.invalid');
     log.error({ api: message });
     this.invalidate('coordinates', message, coordinates);
     return;
@@ -17,14 +17,14 @@ export const isRegionLocationValid = function (
 
   for (const polygons of coordinates) {
     if (polygons.length < 4) {
-      message = i18n.getTranslatedText('apiRegionLocationCoordinatesInvalid');
+      message = i18n.getTranslatedText('api.region.validation.location.polygon.invalid');
       log.error({ api: message });
       this.invalidate('coordinates', message, coordinates);
       return;
     }
     const size = polygons.length;
     if (polygons[0][0] != polygons[size - 1][0] || polygons[0][1] != polygons[size - 1][1]) {
-      message = i18n.getTranslatedText('apiRegionLocationPolygonCoordinatesInvalid');
+      message = i18n.getTranslatedText('api.region.validation.location.polygon.coordinates');
       log.error({ api: message });
       this.invalidate('coordinates', message, coordinates);
       return;
@@ -32,14 +32,14 @@ export const isRegionLocationValid = function (
 
     for (const polygon of polygons) {
       if (polygon.length != 2) {
-        message = i18n.getTranslatedText('apiRegionLocationCoordinatesOrder');
+        message = i18n.getTranslatedText('api.region.validation.location.polygon.order');
         log.error({ api: message });
         this.invalidate('coordinates', message, coordinates);
         return;
       }
 
       if (typeof polygon[0] != 'number' || typeof polygon[1] != 'number') {
-        message = i18n.getTranslatedText('apiRegionLocationCoordinatesInformation');
+        message = i18n.getTranslatedText('api.region.validation.location.polygon.information');
         log.error({ api: message });
         this.invalidate('coordinates', message, coordinates);
         return;

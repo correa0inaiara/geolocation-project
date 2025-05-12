@@ -11,19 +11,19 @@ export const isUserValid = function (
   let message: string = '';
 
   if (isValid(location) && !isObjectID(location)) {
-    message = i18n.getTranslatedText('apiUserLocationInvalid');
+    message = i18n.getTranslatedText('api.user.validation.location');
     log.error({ api: message });
     this.invalidate('location', message, location);
   }
 
   if (isValid(address) && typeof address != 'string') {
-    message = i18n.getTranslatedText('apiUserAddressValidation');
+    message = i18n.getTranslatedText('api.user.validation.address');
     log.error({ api: message });
     this.invalidate('address', message, address);
   }
 
   if ((!isValid(address) && !isObjectID(location)) || (isValid(address) && isObjectID(location))) {
-    message = i18n.getTranslatedText('apiUserSchemaValidation');
+    message = i18n.getTranslatedText('api.user.validation.schema');
     log.error({ api: message });
     this.invalidate('address', message, address);
     this.invalidate('location', message, location);

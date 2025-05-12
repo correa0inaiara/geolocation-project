@@ -2,12 +2,13 @@ import i18next, { InitOptions } from 'i18next';
 import en from './../locales/en';
 import es from './../locales/es';
 import pt from './../locales/pt';
-import { LANG } from './enums';
+import { LANG, LogType } from './enums';
 import { DEFAULT_LANG, DEFAULT_LANG_MESSAGE } from './globals';
 import II18nInstance from './interfaces/II18nInstance ';
 import { ResponseError, TLangError } from './interfaces/IError';
-import { InternationalizationResponseError } from './classes/Errors';
+import { LangResponseError } from './classes/Errors';
 import { ILocaleParams } from './interfaces/ILocale';
+import { RegisterErrorLog } from './services/logService';
 
 const i18nState: II18nInstance = {
   instance: i18next,
@@ -36,7 +37,7 @@ const options: InitOptions = {
 
 function handleError(err: unknown): ResponseError {
   const params: TLangError = { error: err }
-  const customError = InternationalizationResponseError.defineResponseAndLog(params)
+  const customError = LangResponseError.defineResponseAndLog(params)
   console.log('customError', customError)
   return customError
 }
@@ -77,9 +78,16 @@ const i18n = {
   changeLanguage
 }
 
-async function changeLanguage(lang: string) {
+function changeLanguage(lang: string) {
   const { instance } = getInstance()
-  await instance.changeLanguage(lang)
+  instance.changeLanguage(lang)
+    .then((t) => {
+      t(DEFAULT_LANG_MESSAGE)
+    })
+    .catch((err) => {
+      const erro = new 
+      RegisterErrorLog(LogType.LANG, err)
+    })
 }
 
 function getTranslatedText(key: string, params?: ILocaleParams): string {

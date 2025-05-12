@@ -184,37 +184,58 @@ export class DBResponseError extends CustomError {
   }
 }
 
-export class InternationalizationResponseError extends CustomError {
+export class LangResponseError extends CustomError {
   constructor(
     public key: string | null,
     public error: unknown
   ) {
-    super(key ?? 'Internationalization Error', ERROR_STATUS.INTERNAL_SERVER_ERROR, error, LogType.LANG);
+    super(key ?? 'Language Error', ERROR_STATUS.INTERNAL_SERVER_ERROR, error, LogType.LANG);
   }
 
   static defineResponseAndLog(params: TLangError): ResponseError {
     const super_params: IError = params as IError
     
-    super_params.key = 'Internationalization Error'
+    super_params.key = 'Language Error'
     super_params.error_status = ERROR_STATUS.INTERNAL_SERVER_ERROR
     super_params.origin = LogType.LANG
     return super.defineResponseAndLog(super_params)
   }
 }
 
+export class LangMiddlewareChangeLangResponseError extends CustomError {
+  constructor(
+    public key: string | null,
+    public error: unknown
+  ) {
+    const _key = i18n.getTranslatedText('i18n.langChangedError');
+    super(_key, ERROR_STATUS.INTERNAL_SERVER_ERROR, null, LogType.API);
+  }
+
+  static defineResponseAndLog(): ResponseError {
+    const super_params: IError = {
+      error: null,
+      key: i18n.getTranslatedText('i18n.langChangedError'),
+      error_status: ERROR_STATUS.INTERNAL_SERVER_ERROR,
+      origin: LogType.API
+    }
+    return super.defineResponseAndLog(super_params)
+  }
+}
+
+
 export class LangMiddlewareResponseError extends CustomError {
   constructor(
     public key: string | null,
     public error: unknown
   ) {
-    const _key = i18n.getTranslatedText('i18nUnsupportedLangHeader');
+    const _key = i18n.getTranslatedText('api.headers.unsupportedLang');
     super(_key, ERROR_STATUS.NOT_ACCEPTABLE, null, LogType.API);
   }
 
   static defineResponseAndLog(): ResponseError {
     const super_params: IError = {
       error: null,
-      key: i18n.getTranslatedText('i18nUnsupportedLangHeader'),
+      key: i18n.getTranslatedText('api.headers.unsupportedLang'),
       error_status: ERROR_STATUS.NOT_ACCEPTABLE,
       origin: LogType.API
     }
@@ -228,14 +249,14 @@ export class QueryMiddlewareResponseError extends CustomError {
     public key: string | null,
     public error: unknown
   ) {
-    const _key = i18n.getTranslatedText('apiUnsupportedQueryParameter');
+    const _key = i18n.getTranslatedText('api.query.unsupported');
     super(_key, ERROR_STATUS.NOT_ACCEPTABLE, null, LogType.API);
   }
 
   static defineResponseAndLog(): ResponseError {
     const super_params: IError = {
       error: null,
-      key: i18n.getTranslatedText('apiUnsupportedQueryParameter'),
+      key: i18n.getTranslatedText('api.query.unsupported'),
       error_status: ERROR_STATUS.NOT_ACCEPTABLE,
       origin: LogType.API
     }
